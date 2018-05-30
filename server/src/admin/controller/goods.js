@@ -11,8 +11,11 @@ module.exports = class extends Base {
     const name = this.get('name') || '';
 
     const model = this.model('goods');
-    const data = await model.where({name: ['like', `%${name}%`]}).order(['id DESC']).page(page, size).countSelect();
-
+//    const data = await model.where({name: ['like', `%${name}%`]}).order(['id DESC']).page(page, size).countSelect();
+const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`]}).order(['nideshop_goods.category_id DESC']).page(page, size).countSelect();
+ 
+    //const attribute = await this.model('goods_attribute').field('nideshop_goods_attribute.value, nideshop_attribute.name').join('nideshop_attribute ON nideshop_goods_attribute.attribute_id=nideshop_attribute.id').order({'nideshop_goods_attribute.id': 'asc'}).where({'nideshop_goods_attribute.goods_id': goodsId}).select();
+    
     return this.success(data);
   }
 
