@@ -1,14 +1,16 @@
+<wxs module="parses" src="../../utils/common.wxs"/>  
 <scroll-view class="container" scroll-y="true">
   <view wx:if="{{!openAttr}}">
     <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
       <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
-        <image src="{{item.img_url}}" background-size="cover"></image>
+        <!-- <image src="{{item.img_url}}" background-size="cover"></image> -->
+        <image src="{{parses.urlPrefix(item.img_url,urlPrefix)}}" background-size="cover"></image>
       </swiper-item>
     </swiper>
     <view class="service-policy">
       <view class="item">30天无忧退货</view>
       <view class="item">48小时快速退款</view>
-      <view class="item">满88元免邮费</view>
+      <view class="item">满128元免邮费</view>
     </view>
     <view class="goods-info">
       <view class="c">
@@ -54,7 +56,10 @@
             {{comment.data.content}}
           </view>
           <view class="imgs" wx:if="{{comment.data.pic_list.length > 0}}">
-            <image class="img"  wx:for="{{comment.data.pic_list}}" wx:key="{{item.id}}" src="{{item.pic_url}}"></image>
+
+<!--               {{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
+            <image class="img"  wx:for="{{comment.data.pic_list}}" wx:key="{{item.id}}" src="{{item.pic_url}}"></image> -->
+            <image class="img"  wx:for="{{comment.data.pic_list}}" wx:key="{{item.id}}" src="{{parses.urlPrefix(item.pic_url,urlPrefix)}}"></image>
           </view>
           <!-- <view class="spec">白色 2件</view> -->
         </view>

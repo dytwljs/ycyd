@@ -10,8 +10,10 @@ Page({
     scrollTop: 0,
     goodsCount: 0,
     scrollHeight: 0
+    ,urlPrefix:null
   },
   onLoad: function (options) {
+    this.setData({urlPrefix:api.HOST});
     this.getCatalog();
   },
   getCatalog: function () {

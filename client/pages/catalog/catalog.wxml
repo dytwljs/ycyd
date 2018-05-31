@@ -1,3 +1,4 @@
+<wxs module="parses" src="../../utils/common.wxs"/>        
 <view class="container">
   <view class="search">
     <navigator url="/pages/search/search" class="input">
@@ -11,7 +12,12 @@
     </scroll-view>
     <scroll-view class="cate" scroll-y="true">
         <navigator url="url" class="banner">
-            <image class="image" src="{{currentCategory.wap_banner_url}}"></image>
+              <!-- 
+              {{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
+               -->
+            <!-- <image class="image" src="{{currentCategory.wap_banner_url}}"></image> -->
+            <!-- <text>{{parses.urlPrefix(currentCategory.wap_banner_url,urlPrefix)}} </text> -->
+            <image class="image" src="{{parses.urlPrefix(currentCategory.wap_banner_url,urlPrefix)}} "></image>
             <view class="txt">{{currentCategory.front_name}}</view>
         </navigator>
         <view class="hd">
@@ -21,7 +27,8 @@
         </view>
         <view class="bd">
             <navigator url="/pages/category/category?id={{item.id}}" class="item {{(index+1) % 3 == 0 ? 'last' : ''}}" wx:for="{{currentCategory.subCategoryList}}">
-                <image class="icon" src="{{item.wap_banner_url}}"></image>
+                <!-- <image class="icon" src="{{item.wap_banner_url}}"></image> -->
+                <image class="icon" src="{{parses.urlPrefix(item.wap_banner_url,urlPrefix)}}"></image>
                 <text class="txt">{{item.name}}</text>
             </navigator>
         </view>

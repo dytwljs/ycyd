@@ -23,6 +23,7 @@ Page({
     noCollectImage: "/static/images/icon_collect.png",
     hasCollectImage: "/static/images/icon_collect_checked.png",
     collectBackImage: "/static/images/icon_collect.png"
+    ,urlPrefix:null
   },
   getGoodsInfo: function () {
     let that = this;
@@ -39,6 +40,19 @@ Page({
           productList: res.data.productList,
           userHasCollect: res.data.userHasCollect
         });
+        //img_url
+        //g_add
+       // var good=JSON.stringify( res.data.info)
+        var gall=[{
+          id:Math.max(),
+          img_url:res.data.info.list_pic_url
+        }]
+       // this.data.gallery.add(gall)
+
+        that.data.gallery = gall.concat(that.data.gallery);
+      that.setData({
+          'gallery':    that.data.gallery
+      });
 
         if (res.data.userHasCollect == 1) {
           that.setData({
@@ -177,6 +191,7 @@ Page({
     });
   },
   onLoad: function (options) {
+    this.setData({urlPrefix:api.HOST});
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
       id: parseInt(options.id)

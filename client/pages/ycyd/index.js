@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
+// var app = getApp();
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
     floorGoods: [],
     banner: [],
     channel: []
-  
+    ,urlPrefix:null
   },
 
   getIndexData: function () {
@@ -30,6 +31,7 @@ Page({
           floorGoods: res.data.categoryList,
           banner: res.data.banner,
           channel: res.data.channel
+           ,urlPrefix:api.HOST
         });
       }
     });
@@ -89,4 +91,5 @@ Page({
   onShareAppMessage: function () {
   
   }
+
 })

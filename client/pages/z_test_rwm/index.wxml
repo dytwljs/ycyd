@@ -1,0 +1,4 @@
+<!--pages/z_test_rwm/index.wxml-->
+<text>pages/z_test_rwm/index.wxml</text>
+<image style='width:430rpx;height:430rpx;' src="{{pic}}"> </image>
+

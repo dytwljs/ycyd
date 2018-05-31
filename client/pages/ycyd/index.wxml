@@ -1,4 +1,5 @@
 <!--pages/ycyd/index.wxml-->
+<wxs module="parses" src="../../utils/common.wxs"/>
 <view class="container">
 
   <view class="a-section a-topic" wx:if="topics.length > 0">
@@ -15,7 +16,9 @@
           <navigator url="../topicDetail/topicDetail?id={{item.id}}">
             <image class="img" src="{{item.scene_pic_url}}" background-size="cover"></image>
             <view class="np">
+              <text class="name">{{app.globalData.userInfo.username}}</text>
               <text class="name">{{item.title}}</text>
+              <!-- <text class="name">{{parses.replacePrefix(item.title,urlPrefix)}}</text> -->
               <text class="price">￥{{item.price_info}}元起</text>
             </view>
             <text class="desc">{{item.subtitle}}</text>
@@ -35,10 +38,13 @@
     <view class="b">
       <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image>
+          <!--     {{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
+          <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image> -->
+          
+          <image class="img" src="{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}" background-size="cover"></image>
           <view class="right">
             <view class="text">
-              <text class="name">{{item.name}}</text>
+               <text class="name">{{item.name}}</text>
               <text class="desc">{{item.goods_brief}}</text>
               <text class="price">￥{{item.retail_price}}</text>
             </view>

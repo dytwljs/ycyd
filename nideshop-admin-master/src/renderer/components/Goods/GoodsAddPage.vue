@@ -242,6 +242,7 @@
       onSubmitInfo() {
         this.$refs['infoForm'].validate((valid) => {
           if (valid) {
+            this.infoForm.fileUrl=this.infoForm.fileName
             this.axios.post('goods/store', this.infoForm).then((response) => {
               if (response.data.errno === 0) {
                 this.$message({
@@ -267,10 +268,12 @@
             //商品图片
             case 'brand_pic':
               this.infoForm.list_pic_url = res.data.fileUrl;
+              this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.list_pic_url', res.data.fileUrl);
               break;
             case 'brand_new_pic':
               this.infoForm.new_pic_url = res.data.fileUrl;
+              this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.new_pic_url', res.data.fileUrl);
               break;
             case 'goods_detail_pic':

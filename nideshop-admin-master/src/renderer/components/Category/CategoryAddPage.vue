@@ -52,9 +52,11 @@
 
 <script>
   import api from '@/config/api';
+ // this.api = api;
   export default {
     data() {
       return {
+        rootHost:'http://127.0.0.1:8360',
         uploaderHeader: {
           'X-Nideshop-Token': localStorage.getItem('token') || '',
         },
@@ -93,6 +95,7 @@
       onSubmitInfo() {
         this.$refs['infoForm'].validate((valid) => {
           if (valid) {
+            this.infoForm.wap_banner_url=this.infoForm.fileName;
             this.axios.post('category/store', this.infoForm).then((response) => {
               if (response.data.errno === 0) {
                 this.$message({
@@ -119,6 +122,7 @@
             case 'wap_banner_url':
               // this.$set('infoForm.wap_banner_url', res.data.fileUrl);
               this.infoForm.wap_banner_url = res.data.fileUrl;
+              this.infoForm.fileName = res.data.fileName;
               break;
           }
         }
@@ -143,6 +147,10 @@
           let resInfo = response.data.data;
           resInfo.is_show = resInfo.is_show ? true : false;
           that.infoForm = resInfo;
+          // console.log(that.api);
+          // console.log(rootHost);
+          // console.log(api.rootHost);
+          that.infoForm.wap_banner_url=that.rootHost +that.infoForm.wap_banner_url;
         })
       }
 

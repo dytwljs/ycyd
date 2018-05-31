@@ -13,8 +13,10 @@ Page({
     scrollHeight: 0,
     page: 1,
     size: 10000
+    ,urlPrefix:null
   },
   onLoad: function (options) {
+    this.setData({urlPrefix:api.HOST});
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;
     if (options.id) {
