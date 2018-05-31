@@ -115,6 +115,7 @@ Page({
             pic: "data:image/png;base64," + base64
           });
           console.log(res);
+          
           // console.log(res.data.errcode);
           //console.log(res.data.errmsg);
         },
