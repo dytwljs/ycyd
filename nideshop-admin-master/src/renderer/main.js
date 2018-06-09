@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
+
 import 'element-ui/lib/theme-default/index.css'
 
 import App from './App'
 import router from './router'
 import store from './store'
 
+// import api from '@/config/api'
 
 // vue-quill-edit
 import 'quill/dist/quill.core.css'
@@ -35,7 +37,9 @@ router.beforeEach((to, from, next) => {
 	let token = localStorage.getItem('token') || '';
 
     //配置接口信息
-    Axios.defaults.baseURL = 'http://127.0.0.1:8360/admin/';
+    Axios.defaults.baseHOST='http://www.dytwljs.com:8360';
+    Axios.defaults.baseURL = Axios.defaults.baseHOST+'/admin/';
+    // Axios.defaults.baseURL = 'http://127.0.0.1:8360/admin/';
     Axios.defaults.headers.common['X-Nideshop-Token'] = token;
 
 	if (!token && to.name !== 'login') {

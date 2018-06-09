@@ -25,7 +25,7 @@
                     </el-form-item>
                     <el-form-item label="缩略图" prop="scene_pic_url">
                         <el-upload class="image-uploader" name="scene_pic_url"
-                                   action="http://127.0.0.1:8360/admin/upload/topicThumb" :show-file-list="false"
+                                   :action="axios.defaults.baseURL+'upload/topicThumb'" :show-file-list="false"
                                    :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
                             <img v-if="infoForm.scene_pic_url" :src="infoForm.scene_pic_url" class="image-show">
                             <i v-else class="el-icon-plus image-uploader-icon"></i>
@@ -35,7 +35,7 @@
           
                     <!-- 图片上传组件辅助-->
                     <el-upload class="topic-uploader" name="topic_content_pic"
-                            action="http://127.0.0.1:8360/admin/upload/topicContent" :show-file-list="false"
+                            :action="axios.defaults.baseURL+'upload/topicContent'" :show-file-list="false"
                             :on-success="handleUploadImageSuccess" :headers="uploaderHeader" 
                             :before-upload="beforeUpload" :on-error="uploadError">
                     </el-upload>

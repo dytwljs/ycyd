@@ -55,6 +55,7 @@ const data = await model.field(['nideshop_category.name as category_name','nides
         goods_id:values.id
         ,goods_sn:values.goods_sn
         ,retail_price:values.retail_price
+        ,goods_number:values.goods_number
       };
       await modelProduct.add(valuesProduct);
     }

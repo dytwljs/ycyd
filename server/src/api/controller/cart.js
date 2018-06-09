@@ -42,6 +42,7 @@ module.exports = class extends Base {
   async indexAction() {
     return this.success(await this.getCart());
   }
+  
 
   /**
    * 添加商品到购物车

@@ -16,6 +16,9 @@ App({
   },
   
   globalData: {
+    businessInfo:{
+      scene:''
+    },
     userInfo: {
       nickname: 'Hi,游客',
       username: '点击去登录',

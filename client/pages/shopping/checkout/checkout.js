@@ -17,8 +17,10 @@ Page({
     actualPrice: 0.00,     //实际需要支付的总价
     addressId: 0,
     couponId: 0
+    ,urlPrefix:null
   },
   onLoad: function (options) {
+    this.setData({urlPrefix:api.HOST});
 
     // 页面初始化 options为页面跳转所带来的参数
 

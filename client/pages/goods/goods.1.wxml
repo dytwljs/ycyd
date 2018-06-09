@@ -152,8 +152,8 @@
   </view>
 </scroll-view>
   <view class="bottom-btn">
-    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
-    <!-- <view class="l l-collect {{ openAttr ? '' : ''}}" bindtap="closeAttrOrCollect"> -->
+    <!-- <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect"> -->
+    <view class="l l-collect {{ openAttr ? '' : ''}}" bindtap="closeAttrOrCollect">
       <image class="icon" src="{{ collectBackImage }}"></image>
     </view>
     <view class="l l-cart">

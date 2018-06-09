@@ -1,8 +1,10 @@
+
+<wxs module="parses" src="../../utils/common.wxs"/>
 <view class="container">
   <view class="service-policy">
     <view class="item">30天无忧退货</view>
     <view class="item">48小时快速退款</view>
-    <view class="item">满88元免邮费</view>
+    <view class="item">满128元免邮费</view>
   </view>
   <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
     <view class="c">
@@ -17,7 +19,11 @@
           <view class="item {{isEditCart ? 'edit' : ''}}" wx:for="{{cartGoods}}" wx:key="{{item.id}}">
             <view class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
             <view class="cart-goods">
+            <!--
+            {{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
               <image class="img" src="{{item.list_pic_url}}"></image>
+              -->
+              <image class="img" src="{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}"></image>
               <view class="info">
                 <view class="t">
                   <text class="name">{{item.goods_name}}</text>

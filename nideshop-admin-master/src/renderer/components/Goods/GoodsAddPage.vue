@@ -57,7 +57,7 @@
           </el-form-item>
           <el-form-item label="商品图片" prop="list_pic_url">
             <el-upload class="image-uploader-diy" name="brand_pic"
-                       action="http://127.0.0.1:8360/admin/upload/brandPic" :show-file-list="true"
+                       :action="axios.defaults.baseURL+'upload/brandPic'" :show-file-list="true"
                        :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
               <img v-if="infoForm.list_pic_url" :src="infoForm.list_pic_url" class="image-show">
               <i v-else class="el-icon-plus image-uploader-icon"></i>
@@ -76,7 +76,7 @@
 
           <!-- 图片上传组件辅助-->
           <el-upload class="avatar-uploader" name="goods_detail_pic"
-                  action="http://127.0.0.1:8360/admin/upload/goodsDetailPic" :show-file-list="false"
+                  :action="axios.defaults.baseURL+'upload/goodsDetailPic'" :show-file-list="false"
                   :on-success="handleUploadImageSuccess" :headers="uploaderHeader" 
                   :before-upload="beforeUpload" :on-error="uploadError">
           </el-upload>

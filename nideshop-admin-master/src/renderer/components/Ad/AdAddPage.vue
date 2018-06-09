@@ -22,7 +22,7 @@
           </el-form-item>
           <el-form-item label="广告图片" prop="image_url">
             <el-upload class="image-uploader" name="ad_pic"
-                       action="http://127.0.0.1:8360/admin/upload/adPic" :show-file-list="true"
+                       :action="axios.defaults.baseURL+'upload/adPic'" :show-file-list="true"
                        :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
               <img v-if="infoForm.image_url" :src="infoForm.image_url" class="image-show">
               <i v-else class="el-icon-plus image-uploader-icon"></i>

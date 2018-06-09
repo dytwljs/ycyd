@@ -1,3 +1,5 @@
+
+<wxs module="parses" src="../../../utils/common.wxs"/>
 <view class="container">
     <view class="address-box">
         <view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
@@ -65,7 +67,10 @@
     <view class="goods-items">
         <view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
             <view class="img">
+            <!--{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
                 <image src="{{item.list_pic_url}}"></image>
+                -->
+                <image src="{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}"></image>
             </view>
             <view class="info">
                 <view class="t">

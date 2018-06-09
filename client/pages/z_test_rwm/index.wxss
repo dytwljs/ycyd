@@ -1,1 +1,10 @@
 /* pages/z_test_rwm/index.wxss */
+
+.btnLeft {
+  width: 350rpx;
+ float:left;
+}
+.btnRight{
+
+ float:right;
+}

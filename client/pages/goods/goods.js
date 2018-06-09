@@ -191,6 +191,7 @@ Page({
     });
   },
   onLoad: function (options) {
+    console.log(app.globalData.scene);
     this.setData({urlPrefix:api.HOST});
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
@@ -276,8 +277,13 @@ Page({
 
   },
   openCartPage: function () {
+    // wx.navigateTo({
+    //     url: '/pages/cart/cart'
+    //   // url: '../shopping/checkout/checkout'
+    // });
+
     wx.switchTab({
-      url: '/pages/cart/cart',
+      url: '/pages/cart/cart'
     });
   },
   addToCart: function () {
@@ -337,7 +343,13 @@ Page({
             });
           }
 
-        });
+        },function(error){
+          console.log('goods. cartAdd error..');
+          console.log(error);
+          //failure
+          }
+      
+      );
     }
 
   },

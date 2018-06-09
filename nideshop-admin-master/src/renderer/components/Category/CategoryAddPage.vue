@@ -27,7 +27,7 @@
                     </el-form-item>
                     <el-form-item label="图标" prop="wap_banner_url">
                         <el-upload class="image-uploader" name="wap_banner_pic"
-                                   action="http://127.0.0.1:8360/admin/upload/categoryWapBannerPic" :show-file-list="false"
+                                   :action="axios.defaults.baseURL+'upload/categoryWapBannerPic'" :show-file-list="false"
                                    :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
                             <img v-if="infoForm.wap_banner_url" :src="infoForm.wap_banner_url" class="image-show">
                             <i v-else class="el-icon-plus image-uploader-icon"></i>
@@ -56,7 +56,7 @@
   export default {
     data() {
       return {
-        rootHost:'http://127.0.0.1:8360',
+        rootHost:this.axios.defaults.baseHOST,
         uploaderHeader: {
           'X-Nideshop-Token': localStorage.getItem('token') || '',
         },
@@ -147,9 +147,9 @@
           let resInfo = response.data.data;
           resInfo.is_show = resInfo.is_show ? true : false;
           that.infoForm = resInfo;
-          // console.log(that.api);
-          // console.log(rootHost);
-          // console.log(api.rootHost);
+          console.log(that.api);
+          console.log(rootHost);
+          console.log(api.rootHost);
           that.infoForm.wap_banner_url=that.rootHost +that.infoForm.wap_banner_url;
         })
       }

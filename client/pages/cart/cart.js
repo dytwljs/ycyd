@@ -11,15 +11,15 @@ Page({
       "goodsAmount": 0.00,
       "checkedGoodsCount": 0,
       "checkedGoodsAmount": 0.00
+      ,urlPrefix:null
     },
     isEditCart: false,
     checkedAllStatus: true,
     editCartList: []
   },
   onLoad: function (options) {
+    this.setData({urlPrefix:api.HOST});
     // 页面初始化 options为页面跳转所带来的参数
-
-
   },
   onReady: function () {
     // 页面渲染完成

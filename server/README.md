@@ -61,6 +61,41 @@ npm start
 ```
 访问http://127.0.0.1:8360/
 
+安装配置 pm2
+npm install -g pm2
+修改项目根目录下的 pm2.json 为：
+
+vim pm2.json
+修改后的内容如下 ：
+
+{
+  "apps": [{
+    "name": "nideshop",
+    "script": "production.js",
+    "cwd": "/var/www/nideshop",
+    "exec_mode": "fork",
+    "max_memory_restart": "256M",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+
+    }
+  }]
+}
+如果服务器配置较高，可适当调整 max_memory_restart 和instances的值
+
+启动pm2
+
+pm2 start pm2.json
+成功启动
+
+image.png
+再次验证是否可以访问
+
+curl -I http://127.0.0.1:8360/
+
+
 ### 线上部署
 
 + 没有域名部署参考文档：[不用买域名、不用备案、不用配置https快速部署Node.js微信小程序商城（基于Node.js+MySQL+ThinkJS）](http://www.jianshu.com/p/78a0f5f424e1)
@@ -103,77 +138,21 @@ npm start
 + 微信号 tumobi
 + 交流 QQ 群：497145766
 
+service nginx start
+ginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
 
+解决办法
+首先用
+lsof －i :80    查看80端口被什么程序占用，返回结果如下，
+COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
+nginx 3274 root 6u IPv4 10664 0t0 TCP :http (LISTEN)
+nginx 3547 nginx 6u IPv4 10664 0t0 TCP :http (LISTEN)
+.....
+发现是nginx进程占用了80端口，所以我们把nginx进程kill掉，重新启动服务。
+命令如下(kill 掉所有的nginx进程):
+kill -9 lsof -i :80 |grep nginx |grep -v grep|awk '{print $2}'
 
+pm2 start pm2.json
 
-g_debug_error   调试报错
-/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/util.js    369
-/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/async.js   3
-/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/debuggability.js   132
-at exports.default (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/babel-template/lib/index.js:12:11)
-  at exports.default (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/babel-template/lib/index.js:12:11)
+service nginx start
 
-  babel-template/lib/index.js:12:11
-发生异常: Error
-Error: ENOENT: no such file or directory, access '/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/config/config.development.js'
-    at Object.fs.accessSync (fs.js:322:11)
-    at isExist (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-helper/index.js:378:8)
-    at Object.isFile (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-helper/index.js:391:8)
-    at configPaths.forEach.configPath (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:20:18)
-    at Array.forEach (<anonymous>)
-    at Config.loadConfigByName (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:18:17)
-    at Config.loadConfig (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:35:10)
-    at modules.forEach.dir (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:137:29)
-    at Array.forEach (<anonymous>)
-    at Config.load (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:127:15)
-    at Loader.loadConfig (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/index.js:37:27)
-    at thinkLoader.loadAll (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/loader.js:103:33)
-    at Application.run (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/application.js:202:18)
-    at Object.<anonymous> (/Users/root1/Desktop/vs/ns/nideshop-master/development.js:16:10)
-    at Module._compile (module.js:646:14)
-    at Object.Module._extensions..js (module.js:660:10)
-
-  发生异常: Error
-Error: ENOENT: no such file or directory, stat '/Users/root1/Desktop/vs/ns/nideshop-master/app/common/adapter'
-    at Object.fs.existsSync (fs.js:350:13)
-    at Object.getdirFiles (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-helper/index.js:459:11)
-    at Config.loadAdapter (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:45:26)
-    at modules.forEach.dir (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:139:30)
-    at Array.forEach (<anonymous>)
-    at Config.load (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/loader/config.js:127:15)
-    at Loader.loadConfig (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/think-loader/index.js:37:27)
-    at thinkLoader.loadAll (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/loader.js:103:33)
-    at Application.run (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/application.js:202:18)
-    at Object.<anonymous> (/Users/root1/Desktop/vs/ns/nideshop-master/development.js:16:10)
-    at Module._compile (module.js:646:14)
-    at Object.Module._extensions..js (module.js:660:10)
-    at Module.load (module.js:561:32)
-    at tryModuleLoad (module.js:501:12)
-    at Function.Module._load (module.js:493:3)
-    at Function.Module.runMain (module.js:690:10)
-
-    /Users/root1/Desktop/vs/ns/nideshop-master/src/admin"
-
-
-    发生异常: Error
-Error
-    at Object.<anonymous> (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/util.js:369:12)
-    at Module._compile (module.js:649:30)
-    at Object.Module._extensions..js (module.js:660:10)
-    at Module.load (module.js:561:32)
-    at tryModuleLoad (module.js:501:12)
-    at Function.Module._load (module.js:493:3)
-    at Module.require (module.js:593:17)
-    at require (internal/module.js:11:18)
-    at module.exports (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/promise.js:14:12)
-    at Object.<anonymous> (/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/bluebird.js:9:36)
-
-    document is not defined
-    at /Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/node_modules/bluebird/js/release/debuggability.js
-
-    document is not defined  debuggability.js
-
-
-Error: ENOENT: no such file or directory, access '/Users/root1/Desktop/vs/ns/nideshop-master/node_modules/thinkjs/lib/config/config.development.js'
-
-Error: ENOENT: no such file or directory, access thinkjs/lib/config/config.development.js'

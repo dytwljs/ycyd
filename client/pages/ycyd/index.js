@@ -31,7 +31,6 @@ Page({
           floorGoods: res.data.categoryList,
           banner: res.data.banner,
           channel: res.data.channel
-           ,urlPrefix:api.HOST
         });
       }
     });
@@ -40,6 +39,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('option->');
+    console.log(options);
+    this.setData({urlPrefix:api.HOST});
     this.getIndexData();
   },
 
