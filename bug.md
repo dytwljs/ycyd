@@ -3,3 +3,7 @@
                     问题解决。scroll-view下的带fixed 的view，ios显示有问题，view提高一级和scroll平级     
 8.06.02             3,线上版二维码生成不了  已搞定体验版问题。
 
+
+
+o8d3G5Sp68dezXilYJqnkiDyurnc
+o8d3G5Sp68dezXilYJqnkiDyurnc
