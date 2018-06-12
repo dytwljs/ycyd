@@ -32,7 +32,7 @@
             <transition name="router-fade" mode="out-in">
                 <router-view></router-view>
             </transition>
-            <a class="footer" href="https://github.com/tumobi" target="_blank"> nideshop created by tumobi</a>
+            <a class="footer" href="#" target="_blank"> 2018.</a>
         </div>
     </div>
 </template>
