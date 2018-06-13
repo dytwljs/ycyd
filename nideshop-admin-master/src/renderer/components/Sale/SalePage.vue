@@ -7,11 +7,7 @@
 				<el-breadcrumb-item>销售商管理</el-breadcrumb-item>
 			</el-breadcrumb>
 			<div class="operation-nav">
-<<<<<<< HEAD
 				<router-link to="/dashboard/sale/add">
-=======
-				<router-link to="/dashboard/category/add">
->>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
 					<el-button type="primary" icon="plus">添加销售商</el-button>
 				</router-link>
 			</div>
@@ -29,7 +25,6 @@
 		<div class="content-main">
 			<div class="form-table-box">
 				<el-table :data="tableData" style="width: 100%" border stripe>
-<<<<<<< HEAD
           <el-table-column prop="mobile" label="手机" width="130">
           </el-table-column>
 					<el-table-column prop="name" label="姓名">
@@ -47,18 +42,6 @@
               <div v-if="scope.row.authorize==3" class="bg-gray">审核中</div>
               <div v-if="scope.row.authorize==9" class="bg-gray">不予授权</div>
             </template>
-=======
-          <el-table-column prop="id" label="手机" width="130">
-          </el-table-column>
-					<el-table-column prop="name" label="姓名">
-						<template scope="scope">
-              <div v-if="scope.row.layer==1" class="bg-gray">{{scope.row.name}}</div>
-              <div v-if="scope.row.layer==2" class="bg-left">{{scope.row.name}}</div>
-						</template>
-					</el-table-column>
-					
-          <el-table-column prop="layer" label="层级" width="80">
->>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
           </el-table-column>
 <!-- 					<el-table-column prop="parent_id" label="上一级" width="80">
 					</el-table-column> -->
@@ -80,10 +63,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
   export default {
     data() {
       return {
@@ -138,14 +117,10 @@
             name: this.filterForm.name
           }
         }).then((response) => {
-<<<<<<< HEAD
           // this.tableData = response.data.data
           this.tableData = response.data.data
           this.page = response.data.currentPage
           this.total = response.data.count
-=======
-          this.tableData = response.data.data
->>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
         })
       }
     },
