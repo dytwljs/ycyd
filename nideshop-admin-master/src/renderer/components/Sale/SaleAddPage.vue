@@ -15,11 +15,19 @@
                 <el-form ref="infoForm" :rules="infoRules" :model="infoForm" label-width="120px">
                     <el-form-item label="上级销售商" prop="parent_id">
                         <el-select v-model="infoForm.parent_id" placeholder="请选择上级分类">
+<<<<<<< HEAD
                             <el-option v-for="item in parentSale" :key="item.id" :label="item.name" :value="item.id"></el-option>
                         </el-select>
                     </el-form-item>
                     <el-form-item label="手机号" prop="mobile">
                         <el-input v-model="infoForm.mobile"></el-input>
+=======
+                            <el-option v-for="item in parentCategory" :key="item.id" :label="item.name" :value="item.parent_id"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="手机号" prop="id">
+                        <el-input v-model="infoForm.id"></el-input>
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
                     </el-form-item>
                     <el-form-item label="销售商名称" prop="name">
                         <el-input v-model="infoForm.name"></el-input>
@@ -30,7 +38,11 @@
                     </el-form-item>
                     <el-form-item label="授权状态" prop="authorize">
                         <el-select v-model="infoForm.authorize" placeholder="请选择状态">
+<<<<<<< HEAD
                             <el-option v-for="item in authorizeType" :key="item.id" :label="item.name" :value="item.id"></el-option>
+=======
+                            <el-option v-for="item in authorizeType" :key="item.id" :label="item.name" :value="item.authorize"></el-option>
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
                         </el-select>
                     </el-form-item>
 <!--                     <el-form-item label="图标" prop="wap_banner_url">
@@ -52,9 +64,12 @@
                         <el-button type="primary" @click="onSubmitInfo">确定保存</el-button>
                         <el-button @click="goBackPage">取消</el-button>
                     </el-form-item>
+<<<<<<< HEAD
                     <el-form-item>
                       <el-hidden v-model="infoForm.isRecordNew"></el-hidden>
                     </el-form-item>
+=======
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
                 </el-form>
             </div>
         </div>
@@ -62,7 +77,10 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   var UUID = require('uuid');
+=======
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
   import api from '@/config/api';
  // this.api = api;
   export default {
@@ -72,6 +90,7 @@
         uploaderHeader: {
           'X-Nideshop-Token': localStorage.getItem('token') || '',
         },
+<<<<<<< HEAD
         parentSale: [
           {
             // id: 0,
@@ -79,16 +98,29 @@
           }
         ],
         //是否授权(0,未 1,已 2,已申请 3,审核中 9,不予授权
+=======
+        parentCategory: [
+          {
+            id: 0,
+            name: '顶级经销商'
+          }
+        ],
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
         authorizeType:[
           {id:0,
             name:'未审核'},
           {id:1,
             name:'审核通过'},
           {id:2,
+<<<<<<< HEAD
             name:'申请审核'},
           {id:3,
             name:'审核中'},
           {id:9,
+=======
+            name:'审核中'},
+          {id:3,
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
             name:'不予授权'}
         ],
         infoForm: {
@@ -99,11 +131,18 @@
           team_id: 0,
           layer: 3,
           authorize: 0,
+<<<<<<< HEAD
           isRecordNew:true,
         },
         infoRules: {
           id: [
             {type: 'number', maxlength:11, minLength:11,message: '请输入11位数字手机号', trigger: 'blur' },
+=======
+        },
+        infoRules: {
+          id: [
+            { required: true, message: '请输入手机号', trigger: 'blur' },
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
           ],
           name: [
             { required: true, message: '请输入名称', trigger: 'blur' },
@@ -122,6 +161,7 @@
         this.$router.go(-1);
       },
       onSubmitInfo() {
+<<<<<<< HEAD
         var ID = UUID.v1();
         if(this.infoForm.parent_id==this.infoForm.id){
                 this.$message({
@@ -140,6 +180,11 @@
              });
              if(sales[0])
               this.infoForm.layer=sales[0].layer+1;
+=======
+        this.$refs['infoForm'].validate((valid) => {
+          if (valid) {
+           // this.infoForm.wap_banner_url=this.infoForm.fileName;
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
             this.axios.post('sale/store', this.infoForm).then((response) => {
               if (response.data.errno === 0) {
                 this.$message({
@@ -153,13 +198,17 @@
                   message: '保存失败'
                 })
               }
+<<<<<<< HEAD
               console.log(response);
+=======
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
             })
           } else {
             return false;
           }
         });
       },
+<<<<<<< HEAD
       // handleUploadImageSuccess(res, file) {
       //   if (res.errno === 0) {
       //     switch (res.data.name) {
@@ -176,6 +225,23 @@
         this.axios.get('sale/parentSale').then((response) => {
           // this.parentSale = this.parentSale.concat(response.data.data);
           this.parentSale = response.data.data;
+=======
+      handleUploadImageSuccess(res, file) {
+        if (res.errno === 0) {
+          switch (res.data.name) {
+            //分类图片
+            case 'wap_banner_url':
+              // this.$set('infoForm.wap_banner_url', res.data.fileUrl);
+              this.infoForm.wap_banner_url = res.data.fileUrl;
+              this.infoForm.fileName = res.data.fileName;
+              break;
+          }
+        }
+      },
+      getTopCategory() {
+        this.axios.get('sale/topSale').then((response) => {
+          this.parentCategory = this.parentCategory.concat(response.data.data);
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
         })
       },
       getInfo() {
@@ -193,6 +259,7 @@
           let resInfo = response.data.data;
           // resInfo.is_show = resInfo.is_show ? true : false;
           that.infoForm = resInfo;
+<<<<<<< HEAD
           that.infoForm.isRecordNew=false;
           console.log(resInfo);
           console.log(that.rootHost);
@@ -203,13 +270,24 @@
         // });
         .catch((error)=>{
           console.log(error);
+=======
+          console.log(resInfo);
+          console.log(that.rootHost);
+          // that.infoForm.wap_banner_url=that.rootHost +that.infoForm.wap_banner_url;
+        }).faild((err)=>{
+          console.log(err);
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
         })
       }
 
     },
     components: {},
     mounted() {
+<<<<<<< HEAD
       this.getParentSale();
+=======
+      this.getTopCategory();
+>>>>>>> 4e4a5e221fba2e65e6cad7c7d841b5070b9a6179
       this.infoForm.id = this.$route.query.id || 0;
       this.getInfo();
     }
