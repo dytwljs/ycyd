@@ -31,7 +31,7 @@ module.exports = class extends Base {
         //         saleList.push(child);
         //     }
         //   });
-    });
+    // });
 console.log(this.ctx.origin);
 return this.success(data);
 }
