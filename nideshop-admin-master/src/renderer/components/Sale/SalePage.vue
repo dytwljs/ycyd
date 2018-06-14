@@ -33,6 +33,8 @@
               <div v-if="scope.row.layer==3" class="bg-left">{{scope.row.name}}</div>
 						</template>
 					</el-table-column>
+          <el-table-column prop="layer" label="级别" width="70">
+          </el-table-column>
 					
           <el-table-column prop="authorize" label="审核状态">
             <template scope="scope">
@@ -118,9 +120,9 @@
           }
         }).then((response) => {
           // this.tableData = response.data.data
-          this.tableData = response.data.data
-          this.page = response.data.currentPage
-          this.total = response.data.count
+          this.tableData = response.data.data.data
+          this.page = response.data.data.currentPage
+          this.total = response.data.data.count
         })
       }
     },

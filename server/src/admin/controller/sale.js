@@ -16,8 +16,8 @@ module.exports = class extends Base {
         }).select();
         // const dataLayer2    =await model.where({layer:{'>',1}}).select();
         const data = await model.where({
-            name: ['like', `%${name}%`]
-        }).order(['id DESC']).page(page, size).countSelect();
+            name: ['like', `%${name}%`],layer:['<>',1]
+        }).order(['create_time DESC']).page(page, size).countSelect();
         // const saleList = [];
         // dataLayer2.map((item) => {
         //   var isAdd = false;
@@ -57,14 +57,15 @@ async storeAction() {
 
     const model = this.model('sale');
     var result;
+    try {
     if (isRecordNew)
-        result = await model.thenAdd(values, {
-            id: 0
-        });
+        result = await model.thenAdd(values, {id: 0});
     else
-        result = await model.where({
-            id: id
-        }).update(values);
+        result = await model.where({id: id}).update(values);        
+    } catch (error) {        
+        console.log(error);
+        return this.fail(error.errno,error.message);
+    }
     return this.DAReturn(result, values);
     // return this.fail(this.DBERR.ERR_INSERT_EXIST_CODE,this.DBERR.ERR_INSERT_EXIST_MSG,result);
     // return this.success(result);

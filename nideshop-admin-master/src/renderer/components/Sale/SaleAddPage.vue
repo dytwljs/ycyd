@@ -19,7 +19,7 @@
                         </el-select>
                     </el-form-item>
                     <el-form-item label="手机号" prop="mobile">
-                        <el-input v-model="infoForm.mobile"></el-input>
+                        <el-input type="number" v-model="infoForm.mobile"></el-input>
                     </el-form-item>
                     <el-form-item label="销售商名称" prop="name">
                         <el-input v-model="infoForm.name"></el-input>
@@ -63,6 +63,7 @@
 
 <script>
   var UUID = require('uuid');
+  var moment =require('moment')
   import api from '@/config/api';
  // this.api = api;
   export default {
@@ -102,8 +103,8 @@
           isRecordNew:true,
         },
         infoRules: {
-          id: [
-            {type: 'number', maxlength:11, minLength:11,message: '请输入11位数字手机号', trigger: 'blur' },
+          mobile: [
+            {required: true, min:11, max:11,message: '请输入11位数字手机号', trigger: 'blur' },
           ],
           name: [
             { required: true, message: '请输入名称', trigger: 'blur' },
@@ -122,7 +123,7 @@
         this.$router.go(-1);
       },
       onSubmitInfo() {
-        var ID = UUID.v1();
+       // var ID = UUID.v1();
         if(this.infoForm.parent_id==this.infoForm.id){
                 this.$message({
                   type: 'error',
@@ -140,6 +141,12 @@
              });
              if(sales[0])
               this.infoForm.layer=sales[0].layer+1;
+            if(this.infoForm.isRecordNew){
+              this.infoForm.id=UUID.v1();
+              this.infoForm.create_admin=JSON.parse(localStorage.userInfo).id;
+              this.infoForm.create_time=moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+            }
+
             this.axios.post('sale/store', this.infoForm).then((response) => {
               if (response.data.errno === 0) {
                 this.$message({
@@ -148,12 +155,13 @@
                 });
                 this.$router.go(-1)
               } else {
+                console.log(response.data.errmsg);
                 this.$message({
                   type: 'error',
                   message: '保存失败'
                 })
               }
-              console.log(response);
+              // console.log(response);
             })
           } else {
             return false;
