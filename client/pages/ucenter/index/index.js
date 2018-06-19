@@ -29,7 +29,7 @@ Page({
       userInfo: app.globalData.userInfo,
     });
 
-  },
+  }, 
   onHide: function () {
     // 页面隐藏
 
