@@ -59,7 +59,8 @@
             <el-upload class="image-uploader-diy" name="brand_pic"
                        :action="axios.defaults.baseURL+'upload/brandPic'" :show-file-list="true"
                        :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
-              <img v-if="infoForm.list_pic_url" :src="infoForm.list_pic_url" class="image-show">
+              <img v-if="infoForm.list_pic_url" :src="axios.defaults.baseHOST+infoForm.list_pic_url" class="image-show">
+              <!-- <img v-if="infoForm.list_pic_url" :src="infoForm.list_pic_url" class="image-show"> -->
               <i v-else class="el-icon-plus image-uploader-icon"></i>
             </el-upload>
             <div class="form-tip">图片尺寸：800*800</div>
@@ -267,12 +268,14 @@
           switch (res.data.name) {
             //商品图片
             case 'brand_pic':
-              this.infoForm.list_pic_url = res.data.fileUrl;
+              // this.infoForm.list_pic_url = res.data.fileUrl;
+              this.infoForm.list_pic_url = res.data.fileName;
               this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.list_pic_url', res.data.fileUrl);
               break;
             case 'brand_new_pic':
-              this.infoForm.new_pic_url = res.data.fileUrl;
+              // this.infoForm.new_pic_url = res.data.fileUrl;
+              this.infoForm.new_pic_url = res.data.fileName;
               this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.new_pic_url', res.data.fileUrl);
               break;
