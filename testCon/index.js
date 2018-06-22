@@ -16,8 +16,19 @@ var data = {
 
 
 
-test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);
-
+// test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);
+scan();
+function scan(){
+    var res={path:'pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8'};
+    var scene=null;
+    if(res.path.indexOf('?')!=-1){
+        var param=res.path.substring(1).split('?');
+        var param1=res.path.split('?');
+        if(param[1]    && param[1].indexOf('=')!=-1){
+            scene=param[1].split('=')[1];
+        }
+      }
+}
 function test(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = true) {
     console.log(data.appid);
     var access_token = null;

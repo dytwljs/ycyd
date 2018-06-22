@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/qrcode/index",
     "pages/index/index",
     "pages/ycyd/index",
     "pages/z_test_rwm/index",
@@ -35,7 +36,8 @@
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
     "pages/goods/goods",
-    "pages/topicDetail/topicDetail"
+    "pages/topicDetail/topicDetail",
+    "pages/shopping/checkOutAddress/checkOutAddress"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -61,7 +63,8 @@
         "iconPath": "static/images/ic_menu_sort_nor.png",
         "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
         "text": "网购精品"
-      },{
+      },
+      {
         "pagePath": "pages/cart/cart",
         "iconPath": "static/images/ic_menu_shoping_nor.png",
         "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
@@ -79,8 +82,8 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true
-  ,"_comment": {
+  "debug": true,
+  "_comment": {
     "pagePath": "pages/z_test_rwm/index",
     "iconPath": "static/images/ic_menu_shoping_nor.png",
     "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",

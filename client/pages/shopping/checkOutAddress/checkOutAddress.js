@@ -95,10 +95,10 @@ Page({
 
   },
   submitOrder: function () {
-    // if (this.data.addressId <= 0) {
-    //   util.showErrorToast('请选择收货地址');
-    //   return false;
-    // }
+    if (this.data.addressId <= 0) {
+      util.showErrorToast('请选择收货地址');
+      return false;
+    }
     util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;

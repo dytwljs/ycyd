@@ -42,8 +42,15 @@ const data = await model.field(['nideshop_category.name as category_name','nides
     values.is_on_sale = values.is_on_sale ? 1 : 0;
     values.is_new = values.is_new ? 1 : 0;
     values.is_hot = values.is_hot ? 1 : 0;
+    var valuesProduct={
+      goods_id:values.id
+      ,goods_sn:values.goods_sn
+      ,retail_price:values.retail_price
+      ,goods_number:values.goods_number
+    };
     if (id > 0) {
       await model.where({id: id}).update(values);
+      await this.model('product').where({goods_id:id}).update(valuesProduct);
     } else {
       //delete values.id;
       // await model.add(values);
@@ -51,12 +58,6 @@ const data = await model.field(['nideshop_category.name as category_name','nides
       values.id=values.goods_sn>>0;
       const modelProduct =this.model('product');
       await model.add(values);
-      var valuesProduct={
-        goods_id:values.id
-        ,goods_sn:values.goods_sn
-        ,retail_price:values.retail_price
-        ,goods_number:values.goods_number
-      };
       await modelProduct.add(valuesProduct);
     }
     return this.success(values);
