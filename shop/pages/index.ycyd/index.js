@@ -1,10 +1,13 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
-
-//获取应用实例
-const app = getApp()
+// const app =require('../../app');
+var app = getApp();
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
     newGoods: [],
     hotGoods: [],
@@ -13,13 +16,7 @@ Page({
     floorGoods: [],
     banner: [],
     channel: []
-  },
-  onShareAppMessage: function () {
-    return {
-      title: 'NideShop',
-      desc: '微信小程序商城',
-      path: '/pages/index/index'
-    }
+    ,urlPrefix:null
   },
 
   getIndexData: function () {
@@ -38,21 +35,64 @@ Page({
       }
     });
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
     console.log('option->');
     console.log(options);
+    app.globalData.scene="832bb850-2162-4e42-7060796a2fb8";
+    this.setData({urlPrefix:api.HOST});
     this.getIndexData();
   },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
-    // 页面渲染完成
+  
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow: function () {
-    // 页面显示
+  
   },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
   onHide: function () {
-    // 页面隐藏
+  
   },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
   onUnload: function () {
-    // 页面关闭
+  
   },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+
 })

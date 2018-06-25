@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/qrcode/index",
     "pages/ycyd/index",
     "pages/z_test_rwm/index",
     "pages/ucenter/index/index",
     "pages/catalog/catalog",
-    "pages/index.old/index",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
     "pages/ucenter/address/address",
@@ -23,8 +23,6 @@
     "pages/pay/pay",
     "pages/payResult/payResult",
     "pages/topic/topic",
-    "pages/comment/comment",
-    "pages/commentPost/commentPost",
     "pages/topicComment/topicComment",
     "pages/brand/brand",
     "pages/brandDetail/brandDetail",
@@ -57,11 +55,6 @@
         "text": "一车一店"
       },
       {
-        "pagePath": "pages/catalog/catalog",
-        "iconPath": "static/images/ic_menu_sort_nor.png",
-        "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
-        "text": "网购精品"
-      },{
         "pagePath": "pages/cart/cart",
         "iconPath": "static/images/ic_menu_shoping_nor.png",
         "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
@@ -79,11 +72,17 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true
-  ,"_comment": {
+  "debug": true,
+  "_comment": {
     "pagePath": "pages/z_test_rwm/index",
     "iconPath": "static/images/ic_menu_shoping_nor.png",
     "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
     "text": "生成二维码"
+  },
+  "_comment1": {
+    "pagePath": "pages/catalog/catalog",
+    "iconPath": "static/images/ic_menu_sort_nor.png",
+    "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
+    "text": "网购精品"
   }
 }
