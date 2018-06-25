@@ -1,5 +1,5 @@
 const axios = require('axios');
-var fs = require('fs'); 
+var fs = require('fs');
 var data = {
     pic: null,
     // urlToken: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
@@ -16,28 +16,29 @@ var data = {
 
 
 
-// test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);
-scan();
-function scan(){
-    var res={path:'pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8'};
-    var scene=null;
-    if(res.path.indexOf('?')!=-1){
-        var param=res.path.substring(1).split('?');
-        var param1=res.path.split('?');
-        if(param[1]    && param[1].indexOf('=')!=-1){
-            scene=param[1].split('=')[1];
+test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);
+// scan();
+function scan() {
+    var res = { path: 'pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8' };
+    var scene = null;
+    if (res.path.indexOf('?') != -1) {
+        var param = res.path.substring(1).split('?');
+        var param1 = res.path.split('?');
+        if (param[1] && param[1].indexOf('=') != -1) {
+            scene = param[1].split('=')[1];
         }
-      }
+    }
 }
+
 function test(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = true) {
     console.log(data.appid);
     var access_token = null;
-    var url1=urlToken+"?grant_type=client_credential&appid="+appid+"&secret="+secret;
+    var url1 = urlToken + "?grant_type=client_credential&appid=" + appid + "&secret=" + secret;
     // axios.get(urlToken, data2).then(function (response) {
-    axios.get(url1).then(function (res) {
-        access_token=res.data.access_token;
+    axios.get(url1).then(function(res) {
+        access_token = res.data.access_token;
         console.log(res);
-        if(res.data.access_token){
+        if (res.data.access_token) {
             console.log(res.data.access_token);
             var url2 = urlWxCode + access_token;
             var post = {
@@ -45,13 +46,13 @@ function test(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = t
                 "page": page,
                 "width": 430
             };
-            var headers={
+            var headers = {
                 // headers:{
-                    // "Content-Type":"application/json",
-                     "responseType":"arraybuffer"
-                // }
+                // "Content-Type":"application/json",
+                "responseType": "arraybuffer"
+                    // }
             };
-            axios.post(url2,post,headers).then(function(res){
+            axios.post(url2, post, headers).then(function(res) {
                 if (res.data.errcode) {
                     console.log('二维码 errcode ');
                     console.log(res);
@@ -64,18 +65,18 @@ function test(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = t
                 }
                 console.log(res.data.length + 'len ..bytelen' + res.data.byteLength);
                 //存为文件
-                saveFile('/private/var/gedy/aa.jpg',res.data);
+                saveFile('/private/var/gedy/aa.jpg', res.data);
                 //转为base64显示
                 // const base64 = wx.arrayBufferToBase64(res.data);
 
-            }).catch(function(err){
+            }).catch(function(err) {
                 console.log(err);
 
             });
 
         }
 
-    }).catch(function (err) {
+    }).catch(function(err) {
         console.log(err);
     });
 }
@@ -86,26 +87,26 @@ function test(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = t
  */
 function saveFile(filePath, fileData) {
     return new Promise((resolve, reject) => {
-     // 块方式写入文件
-     const wstream = fs.createWriteStream(filePath);
-    
-     wstream.on('open', () => {
-      const blockSize = 128;
-      const nbBlocks = Math.ceil(fileData.length / (blockSize));
-      for (let i = 0; i < nbBlocks; i += 1) {
-       const currentBlock = fileData.slice(
-        blockSize * i,
-        Math.min(blockSize * (i + 1), fileData.length),
-       );
-       wstream.write(currentBlock);
-      }
-    
-      wstream.end();
-     });
-     wstream.on('error', (err) => { reject(err); });
-     wstream.on('finish', () => { resolve(true); });
+        // 块方式写入文件
+        const wstream = fs.createWriteStream(filePath);
+
+        wstream.on('open', () => {
+            const blockSize = 128;
+            const nbBlocks = Math.ceil(fileData.length / (blockSize));
+            for (let i = 0; i < nbBlocks; i += 1) {
+                const currentBlock = fileData.slice(
+                    blockSize * i,
+                    Math.min(blockSize * (i + 1), fileData.length),
+                );
+                wstream.write(currentBlock);
+            }
+
+            wstream.end();
+        });
+        wstream.on('error', (err) => { reject(err); });
+        wstream.on('finish', () => { resolve(true); });
     });
-   }
+}
 /**
  * 生成二维码
  * @param appid
@@ -126,7 +127,7 @@ function test1(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = 
         appid: appid,
         secret: secret
     };
-    utils.request(url, data1, 'GET').then(function (res) {
+    utils.request(url, data1, 'GET').then(function(res) {
         if (!res.access_token)
             return;
         access_token = res.access_token;
@@ -144,7 +145,7 @@ function test1(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = 
             data: post,
             method: 'POST',
             responseType: isArrayBuffer ? 'arraybuffer' : 'text',
-            success: function (res) {
+            success: function(res) {
                 if (res.data.errcode) {
                     console.log('二维码 errcode ');
                     console.log(res);
@@ -165,7 +166,7 @@ function test1(urlToken, urlWxCode, appid, secret, scene, page, isArrayBuffer = 
                     pic: "data:image/png;base64," + base64
                 });
             },
-            faild: function (res) {
+            faild: function(res) {
                 console.log('二维码faild， ');
                 console.log(res);
 

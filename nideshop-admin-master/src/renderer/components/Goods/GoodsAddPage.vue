@@ -203,6 +203,9 @@
           list_pic_url: [
             { required: true, message: '请选择商品图片', trigger: 'blur' },
           ],
+          goods_number: [
+            {required: true, min:8, max:8,message: '请输入8位数字', trigger: 'blur' },
+          ],
         },
       }
     },
