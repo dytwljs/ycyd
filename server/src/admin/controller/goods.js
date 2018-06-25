@@ -12,13 +12,18 @@ module.exports = class extends Base {
 
     const model = this.model('goods');
 //    const data = await model.where({name: ['like', `%${name}%`]}).order(['id DESC']).page(page, size).countSelect();
-const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`]}).order(['nideshop_goods.category_id DESC']).page(page, size).countSelect();
- 
-    //const attribute = await this.model('goods_attribute').field('nideshop_goods_attribute.value, nideshop_attribute.name').join('nideshop_attribute ON nideshop_goods_attribute.attribute_id=nideshop_attribute.id').order({'nideshop_goods_attribute.id': 'asc'}).where({'nideshop_goods_attribute.goods_id': goodsId}).select();
-    // console.log('..........');
+
+ const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`],'nideshop_goods.is_delete':0}).order(['nideshop_goods.id DESC']).page(page, size).countSelect();
+// // const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`]}).order(['nideshop_goods.category_id DESC']).countSelect();
+// const datas=await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`]}).order(['nideshop_goods.category_id DESC']).select();
+//     //const attribute = await this.model('goods_attribute').field('nideshop_goods_attribute.value, nideshop_attribute.name').join('nideshop_attribute ON nideshop_goods_attribute.attribute_id=nideshop_attribute.id').order({'nideshop_goods_attribute.id': 'asc'}).where({'nideshop_goods_attribute.goods_id': goodsId}).select();
+//     // console.log('..........');
+//     // console.log('..........');
+
+    // var sql ="select nc.`name`,g.* from nideshop_goods g JOIN nideshop_category nc ON g.category_id=nc.id where g.`name` like '%%' ORDER BY g.id desc limit "+(page-1)*size+","+size;
+    // const data=await model.query(sql);
     console.log(this.ctx.origin);
-    // console.log('..........');
-    
+        
     return this.success(data);
   }
 
@@ -65,7 +70,11 @@ const data = await model.field(['nideshop_category.name as category_name','nides
 
   async destoryAction() {
     const id = this.post('id');
-    await this.model('goods').where({id: id}).limit(1).delete();
+    //标记删除，商品一般情况下不能真正删除。
+    await this.model('goods').where({id:id}).update({is_delete:1});
+    //真正删除商品，慎用。
+    // await this.model('goods').where({id: id}).limit(1).delete();
+    // await this.model('product').where({goods_id: id}).delete();
     // TODO 删除图片
 
     return this.success();
