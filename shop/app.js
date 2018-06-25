@@ -48,6 +48,8 @@ App({
     if(options && options.scene&&options.scene==1044){
       this.shareTicket=options.shareTicket?options.shareTicket:'';
     }
+    //
+    
   },
   handSecne(scene){
 
