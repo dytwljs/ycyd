@@ -4,6 +4,9 @@
 *.ldb
 #*.sln
 *.config
+*.dtbcache
+*.ide-shm
+*.ide-wal
 
 
 #过滤文件夹Debug,Release,obj
