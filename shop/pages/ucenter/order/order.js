@@ -21,7 +21,7 @@ Page({
       }
     });
   },
-  payOrder(){
+  payOrder(e){
     wx.redirectTo({
       url: '/pages/pay/pay',
     })

@@ -15,13 +15,12 @@ var data = {
     page3: "pages/z_test_rwm/index?id=333"
 };
 
-strSpace('2016060520103600466',5)
-function strSpace(str,len){
-    //var str = '2016060520103600466';
-    var result=str.replace(/\s/g,'').replace(/(.{5})/g,"$1 ");
-    console.log(result);   //2016 0605 2010 3600 466
+var str = '2016060520103600466';
 
-}
+var str=str.replace(/\s/g,'').replace(/(.{4})/g,"$1 ");
+
+alert(str);
+
 //test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);
 // scan();
 function scan() {

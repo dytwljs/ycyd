@@ -106,9 +106,9 @@ module.exports = class extends Base {
     // 订单价格计算
     const orderTotalPrice = goodsTotalPrice + freightPrice - couponPrice; // 订单的总价
     const actualPrice = orderTotalPrice - 0.00; // 减去其它支付的金额后，要实际支付的金额
-    //const currentTime = parseInt(this.getTime() / 1000);
+    const currentTime = parseInt(this.getTime() / 1000);
     //g_mod
-    const currentTime =parseInt(new Date().getTime() / 1000);
+    const currentTime =new Date();
 
     const orderInfo = {
       order_sn: this.model('order').generateOrderNumber(),

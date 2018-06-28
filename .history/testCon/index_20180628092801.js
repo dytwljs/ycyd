@@ -18,7 +18,7 @@ var data = {
 strSpace('2016060520103600466',5)
 function strSpace(str,len){
     //var str = '2016060520103600466';
-    var result=str.replace(/\s/g,'').replace(/(.{5})/g,"$1 ");
+    var result=str.replace(/\s/g,'').replace(/(.{len})/g,"$1 ");
     console.log(result);   //2016 0605 2010 3600 466
 
 }

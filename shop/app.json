@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/ycyd/index",
     "pages/index/index",
     "pages/qrcode/index",
-    "pages/ycyd/index",
     "pages/z_test_rwm/index",
     "pages/ucenter/index/index",
     "pages/catalog/catalog",
@@ -50,6 +50,12 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "static/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/ycyd/index",
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
         "text": "一车一店"
