@@ -16,6 +16,13 @@
       "request": "launch",
       "name": "testCon",
       "program": "${workspaceFolder}/testCon/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "createQrcode",
+      // "program": "${workspaceFolder}\\testCon\\createQrcode.js"
+      "program": "${workspaceFolder}/testCon/createQrcode.js"
     }
   ]
 }
