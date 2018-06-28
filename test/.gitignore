@@ -13,3 +13,5 @@
 Debug/
 Release/
 obj/
+/.history
+/.vs
