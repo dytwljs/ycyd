@@ -3,7 +3,8 @@ var fs = require('fs');
 var long = require('./long');
 var data = {
     pic: null,
-    path: 'c:/temp/',
+  //  path: 'c:/temp/',
+    path:'/private/var/gedy/',
     // urlToken: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
     urlToken: 'https://api.weixin.qq.com/cgi-bin/token',
     urlWxCode: 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=',

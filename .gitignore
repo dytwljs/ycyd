@@ -80,3 +80,4 @@ nideshop-admin-master/package-lock.json
 nideshop-admin-master/package.json
 server/package-lock.json
 server/package.json
+.DS_Store
