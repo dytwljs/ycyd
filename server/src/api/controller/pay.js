@@ -21,13 +21,17 @@ module.exports = class extends Base {
       return this.fail('微信支付失败');
     }
     const WeixinSerivce = this.service('weixin', 'api');
+    console.log(this);
+    console.log(this.ctx);
+    console.log(this.ctx.ip);
     try {
       const returnParams = await WeixinSerivce.createUnifiedOrder({
         openid: openid,
         body: '订单编号：' + orderInfo.order_sn,
         out_trade_no: orderInfo.order_sn,
         total_fee: parseInt(orderInfo.actual_price * 100),
-        spbill_create_ip: ''
+        spbill_create_ip: ''     //g_mod
+        // spbill_create_ip: '127.0.0.1'
       });
       return this.success(returnParams);
     } catch (err) {

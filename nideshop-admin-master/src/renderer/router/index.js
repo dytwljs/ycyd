@@ -176,6 +176,21 @@ export default new Router({
                     name: 'sale_add',
                     component: require('@/components/Sale/SaleAddPage')
                 },
+                {
+                    path: 'storeEnter',
+                    name: 'storeEnter',
+                    component: require('@/components/Store/StoreEnter')
+                },
+                {
+                    path: 'storeEnter/add',
+                    name: 'storeEnter_add',
+                    component: require('@/components/Store/StoreEnterAdd')
+                },
+                {
+                    path: 'storeEnterDetail/add',
+                    name: 'storeEnterDetail_add',
+                    component: require('@/components/Store/StoreEnterDetailAdd')
+                },
             ]
         },
         {

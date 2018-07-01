@@ -23,7 +23,7 @@ var sce = '97574194493047654';
 for (i = 0; i < 20; i++) {
     sce = long.jia(sce, 1);
     console.log(sce);
-    test(data.urlToken, data.urlWxCode, data.appid, data.secret, sce, data.page2);
+    test(data.urlToken, data.urlWxCode, data.appid, data.secret, sce, data.page1);
 }
 //   test(data.urlToken, data.urlWxCode, data.appid, data.secret, sce + i, data.page2);
 //test(data.urlToken, data.urlWxCode, data.appid, data.secret, data.scene, data.page2);

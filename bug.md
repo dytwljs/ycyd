@@ -7,3 +7,5 @@
 
 o8d3G5Sp68dezXilYJqnkiDyurnc
 o8d3G5Sp68dezXilYJqnkiDyurnc
+
+调用支付jsapi缺少参数total_fee

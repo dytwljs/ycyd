@@ -1,2 +1,2 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">aaaaa </button>

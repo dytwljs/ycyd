@@ -24,6 +24,10 @@
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="infoForm.name"></el-input>
           </el-form-item>
+
+          <el-form-item label="条件码" prop="ean_code">
+            <el-input v-model="infoForm.ean_code"></el-input>
+          </el-form-item>
           <el-form-item label="商品价格" prop="retail_price">
             <el-input v-model="infoForm.retail_price"></el-input>
           </el-form-item>
@@ -101,7 +105,7 @@
             </div>
           </el-form-item>
           <el-form-item label="规格/库存" prop="goods_number">
-            <el-input v-model="infoForm.goods_number"></el-input>
+            <el-input type="number" v-model="infoForm.goods_number"></el-input>
           </el-form-item>
           <el-form-item label="推荐类型">
             <el-checkbox-group v-model="infoForm.is_new">
@@ -204,7 +208,7 @@
             { required: true, message: '请选择商品图片', trigger: 'blur' },
           ],
           goods_number: [
-            {required: true, min:8, max:8,message: '请输入8位数字', trigger: 'blur' },
+            {required: true, min:1, max:8,message: '请输入8位数字', trigger: 'blur' },
           ],
         },
       }

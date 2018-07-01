@@ -21,9 +21,12 @@ Page({
       }
     });
   },
-  payOrder(){
+  payOrder(event){
+    let index=event.target.dataset.orderIndex;
+    let orderId=this.data.orderList[index ].id;
+    let actualPrice=this.data.orderList[index ].actual_price;
     wx.redirectTo({
-      url: '/pages/pay/pay',
+      url: '/pages/pay/pay?orderId='+orderId+'&actualPrice='+actualPrice,
     })
   },
   onReady:function(){

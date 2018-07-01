@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/cart/cart",
-    "pages/qrcode/index",
     "pages/index/index",
+    "pages/qrcode/index",
+    "pages/cart/cart",
     "pages/ycyd/index",
     "pages/z_test_rwm/index",
     "pages/ucenter/index/index",
@@ -53,12 +53,6 @@
     "color": "#666",
     "list": [
       {
-        "pagePath": "pages/qrcode/index",
-        "iconPath": "static/images/ic_menu_choice_nor.png",
-        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
-        "text": "扫码"
-      },
-      {
         "pagePath": "pages/index/index",
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
@@ -94,5 +88,11 @@
     "iconPath": "static/images/ic_menu_shoping_nor.png",
     "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
     "text": "生成二维码"
+  }
+  ,"_comment1": {
+    "pagePath": "pages/qrcode/index",
+    "iconPath": "static/images/ic_menu_choice_nor.png",
+    "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+    "text": "扫码"
   }
 }

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/ycyd/index",
     "pages/index/index",
+    "pages/ycyd/index",
     "pages/qrcode/index",
     "pages/z_test_rwm/index",
     "pages/ucenter/index/index",

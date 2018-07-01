@@ -7,9 +7,22 @@ Page({
      * 页面的初始数据
      */
     data: {
+            storeList:[]
+            ,isEditCart: true
+    },
+    getIndex: function(scene) {
 
+        let that = this;
+        util.request(api.storeSale,{id:scene},"POST").then(function(res) {
+            if (res.errno === 0) {
+                that.setData({
+                    storeList:res.data.storeList
+                });
+            }
+        });
     },
     scan: function(e) {
+        let that=this;
         // 允许从相机和相册扫码
         wx.scanCode({
             success: (res) => {
@@ -29,6 +42,7 @@ Page({
                         return;
                     }
                     var scene = this.getScene(res.path);
+                    this.getIndex(scene);   
                     console.log(scene);
                 }
                 if (res.scanType == 'EAN_13') {
@@ -59,7 +73,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
     },
 
     /**
