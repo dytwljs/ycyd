@@ -7,7 +7,10 @@ module.exports = class extends Base {
    * @return {Promise} []
    */
   async listAction() {
-    const orderList = await this.model('order').where({ user_id: think.userId }).page(1, 10).countSelect();
+    const currentPage=this.post('currentPage');
+
+    const pageSize=this.post('pageSize');
+    const orderList = await this.model('order').where({ user_id: think.userId }).page(currentPage, pageSize).countSelect();
     const newOrderList = [];
     for (const item of orderList.data) {
       // 订单的商品

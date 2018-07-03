@@ -2,11 +2,11 @@ var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./services/user.js');
 /** 
- * wx.getStorageSync('userInfo')
- * wx.getStorageSync('token')
- * wx.getStorageSync('scene')
- * wx.getStorageSync('saleInfo')
- * 
+ * wx.getStorageSync('userInfo')  用户信息
+ * wx.getStorageSync('token')     
+ * wx.getStorageSync('scene')       二维码传入参数
+ * wx.getStorageSync('saleInfo')    分销商司机信息
+ *  wx.getStorageSync('addressId')    地址信息
 */
 App({
   onLaunch: function (options) {

@@ -22,9 +22,14 @@ Page({
                 storeSale: res.data.storeSale
             });
             res.data.storeList.forEach(function(e){
-                var store=that.data.storeList.find(id:e.id ;
-                if(store.length>0)
-                    e.checked=store[0].checked;
+                var store=that.data.storeList.find((st)=>{
+                    var a='';
+                    a='';
+                    if(st.id==e.id)
+                        return st;
+                });
+                if(store)
+                    e.checked=store.checked;
                 // e.checked=e.id==that.data.storeSale[0].id?true:false;
                 if(e.id==that.data.storeSale[0].id)
                     e.checked=true;
