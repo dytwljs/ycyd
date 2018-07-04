@@ -22,8 +22,6 @@ Page({
                 });
                 res.data.storeList.forEach(function(e) {
                     var store = that.data.storeList.find((st) => {
-                        var a = '';
-                        a = '';
                         if (st.id == e.id)
                             return st;
                     });
@@ -147,7 +145,8 @@ Page({
      */
     onLoad: function(options) {
         var scene = wx.getStorageSync('scene');
-        this.handScene(scene);
+        if(scene!='undefined')
+            this.handScene(scene);
     },
 
     /**

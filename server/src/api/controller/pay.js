@@ -35,7 +35,7 @@ module.exports = class extends Base {
       });
       //g_add 
       //标记订单已收货
-      await this.model('order').where({id:orderId}).limit(1).update({order_status:301,pay_status:1});
+      // await this.model('order').where({id:orderId}).limit(1).update({order_status:301,pay_status:1});
 
       return this.success(returnParams);
     } catch (err) {
