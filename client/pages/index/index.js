@@ -2,74 +2,63 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-            storeList:[]
-            ,storeSale:{}
-            ,isEditCart: true
+        storeList: [],
+        storeSale: {},
+        isEditCart: true
     },
-    handScene:function(scene){
+    handScene: function(scene) {
 
         let that = this;
-        util.request(api.StoreSale,{id:scene},'POST').then(function (res) {
-        if (res.errno === 0) {
-            console.log(res.data);
-            that.setData({
-                //storeList: res.data.storeList,
-                storeSale: res.data.storeSale
-            });
-            res.data.storeList.forEach(function(e){
-                var store=that.data.storeList.find((st)=>{
-                    var a='';
-                    a='';
-                    if(st.id==e.id)
-                        return st;
+        util.request(api.StoreSale, { id: scene }, 'POST').then(function(res) {
+            if (res.errno === 0) {
+                console.log(res.data);
+                that.setData({
+                    //storeList: res.data.storeList,
+                    storeSale: res.data.storeSale
                 });
-                if(store)
-                    e.checked=store.checked;
-                // e.checked=e.id==that.data.storeSale[0].id?true:false;
-                if(e.id==that.data.storeSale[0].id)
-                    e.checked=true;
-            });
-            that.setData({
-                storeList: res.data.storeList});
-
-
-            // res.data.storeList.forEach(function(e){
-            //     e.checked=e.id==that.data.storeSale[0].id?true:false;
-            // });
-            // // if(that.data.storeList.length==0)
-            //     that.setData({
-            //         storeList: res.data.storeList});
-        }
-        //   that.setData({
-        //     checkedAllStatus: that.isCheckedAll()
-        //   });
+                res.data.storeList.forEach(function(e) {
+                    var store = that.data.storeList.find((st) => {
+                        var a = '';
+                        a = '';
+                        if (st.id == e.id)
+                            return st;
+                    });
+                    if (store)
+                        e.checked = store.checked;
+                    // e.checked=e.id==that.data.storeSale[0].id?true:false;
+                    if (e.id == that.data.storeSale[0].id)
+                        e.checked = true;
+                });
+                that.setData({
+                    storeList: res.data.storeList
+                });
+            }
         });
     },
-    handEan:function(ean_code){
+    handEan: function(ean_code) {
         let that = this;
-        util.request(api.StoreEan,{ean_code:ean_code},'POST').then(function (res) {
-        if (res.errno === 0) {
-            console.log(res.data);
-            // that.setData({
-            //     //storeList: res.data.storeList,
-            //     storeSale: res.data.storeSale
-            // });
-            // res.data.storeList.forEach(function(e){
-            //     e.checked=e.id==that.data.storeSale[0].id?true:false;
-            // });
-            // // if(that.data.storeList.length==0)
-            //     that.setData({
-            //         storeList: res.data.storeList});
-        }
+        util.request(api.StoreEan, { ean_code: ean_code }, 'POST').then(function(res) {
+            if (res.errno === 0) {
+                console.log(res.data);
+                // that.setData({
+                //     //storeList: res.data.storeList,
+                //     storeSale: res.data.storeSale
+                // });
+                // res.data.storeList.forEach(function(e){
+                //     e.checked=e.id==that.data.storeSale[0].id?true:false;
+                // });
+                // // if(that.data.storeList.length==0)
+                //     that.setData({
+                //         storeList: res.data.storeList});
+            }
         });
     },
     scan: function(e) {
-        let that=this;
+        let that = this;
         // 允许从相机和相册扫码
         wx.scanCode({
             success: (res) => {
@@ -89,7 +78,7 @@ Page({
                         return;
                     }
                     var scene = this.getScene(res.path);
-                    this.handScene(scene);   
+                    this.handScene(scene);
                     console.log(scene);
                 }
                 if (res.scanType == 'EAN_13') {
@@ -118,47 +107,47 @@ Page({
         return scene;
     },
 
-  checkedItem: function (event) {
-    let itemIndex = event.target.dataset.itemIndex;
-    let that = this;
+    checkedItem: function(event) {
+        let itemIndex = event.target.dataset.itemIndex;
+        let that = this;
 
-    // if (!this.data.isEditCart) {
-    //   util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].product_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
-    //     if (res.errno === 0) {
-    //       console.log(res.data);
-    //       that.setData({
-    //         cartGoods: res.data.cartList,
-    //         cartTotal: res.data.cartTotal
-    //       });
-    //     }
+        // if (!this.data.isEditCart) {
+        //   util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].product_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
+        //     if (res.errno === 0) {
+        //       console.log(res.data);
+        //       that.setData({
+        //         cartGoods: res.data.cartList,
+        //         cartTotal: res.data.cartTotal
+        //       });
+        //     }
 
-    //     that.setData({
-    //       checkedAllStatus: that.isCheckedAll()
-    //     });
-    //   });
-    // } else {
-    //   //编辑状态
-    //   let tmpCartData = this.data.cartGoods.map(function (element, index, array) {
-    //     if (index == itemIndex){
-    //       element.checked = !element.checked;
-    //     }
-        
-    //     return element;
-    //   });
+        //     that.setData({
+        //       checkedAllStatus: that.isCheckedAll()
+        //     });
+        //   });
+        // } else {
+        //   //编辑状态
+        //   let tmpCartData = this.data.cartGoods.map(function (element, index, array) {
+        //     if (index == itemIndex){
+        //       element.checked = !element.checked;
+        //     }
 
-    //   that.setData({
-    //     cartGoods: tmpCartData,
-    //     checkedAllStatus: that.isCheckedAll(),
-    //     'cartTotal.checkedGoodsCount': that.getCheckedGoodsCount()
-    //   });
-    // }
-  },
+        //     return element;
+        //   });
+
+        //   that.setData({
+        //     cartGoods: tmpCartData,
+        //     checkedAllStatus: that.isCheckedAll(),
+        //     'cartTotal.checkedGoodsCount': that.getCheckedGoodsCount()
+        //   });
+        // }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-       var scene = wx.getStorageSync('scene');
-       this.handScene(scene);
+        var scene = wx.getStorageSync('scene');
+        this.handScene(scene);
     },
 
     /**
