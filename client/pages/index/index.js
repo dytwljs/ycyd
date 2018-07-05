@@ -9,6 +9,7 @@ Page({
         storeList: [],
         storeSale: {},
         isEditCart: true
+        ,isAuthorize:false
     },
     handScene: function(scene) {
 
@@ -144,7 +145,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        var scene = wx.getStorageSync('scene');
+        // var scene = wx.getStorageSync('scene');
+        var scene=getApp().globalData.scene;
         if(scene!='undefined')
             this.handScene(scene);
     },
@@ -167,7 +169,6 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {
-
     },
 
     /**
