@@ -1,11 +1,11 @@
 {
     "pages": [
+      "pages/ucenter/index/index",
         "pages/index/index",
         "pages/qrcode/index",
         "pages/cart/cart",
         "pages/ycyd/index",
         "pages/z_test_rwm/index",
-        "pages/ucenter/index/index",
         "pages/catalog/catalog",
         "pages/index.old/index",
         "pages/newGoods/newGoods",

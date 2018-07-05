@@ -1,10 +1,16 @@
 <view class="container">
-  <view class="profile-info" bindtap="goLogin">
-    <image class="avatar" src="{{userInfo.avatar}}"></image>
+  <view class="profile-info">
+      <button class="button" open-type="getUserInfo"  bindtap="goLogin" >
+       <image class="avatar" src="{{userInfo.avatar}}"></image>
+    </button>
+
     <view class="info">
       <text class="name">{{userInfo.nickname}}</text>
       <!-- <text class="level">{{userInfo.username}}</text> -->
     </view>
+  </view>
+  <view>
+    <button open-type="getUserInfo"  bindtap="goLogin" ><text class="name">{{userInfo.nickname}}</text></button>
   </view>
 
   <view class="user-menu">
