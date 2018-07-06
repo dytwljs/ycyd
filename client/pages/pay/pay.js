@@ -52,6 +52,8 @@ Page({
             })
           }
         })
+      }else{
+        console.log(res);
       }
     });
   },

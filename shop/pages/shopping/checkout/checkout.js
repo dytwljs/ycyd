@@ -59,6 +59,8 @@ Page({
           freightPrice: res.data.freightPrice,
           goodsTotalPrice: res.data.goodsTotalPrice,
           orderTotalPrice: res.data.orderTotalPrice
+          
+          // ,addressId=res.data.checkedAddress.id     //g_add
         });
       }
       wx.hideLoading();
@@ -95,7 +97,11 @@ Page({
 
   },
   submitOrder: function () {
+    this.setData({
+      addressId:this.data.checkedAddress.id
+    });
     if (this.data.addressId <= 0) {
+
       util.showErrorToast('请选择收货地址');
       return false;
     }

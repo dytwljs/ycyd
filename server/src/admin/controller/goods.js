@@ -1,4 +1,5 @@
 const Base = require('./base.js');
+const db = require('../../common/config/database.js');
 
 module.exports = class extends Base {
   /**
@@ -9,23 +10,32 @@ module.exports = class extends Base {
     const page = this.get('page') || 1;
     const size = this.get('size') || 10;
     const name = this.get('name') || '';
-
+    // console.log(db.prefix);
+    // console.log('...........');
     const model = this.model('goods');
-//    const data = await model.where({name: ['like', `%${name}%`]}).order(['id DESC']).page(page, size).countSelect();
-const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`]}).order(['nideshop_goods.category_id DESC']).page(page, size).countSelect();
- 
-    //const attribute = await this.model('goods_attribute').field('nideshop_goods_attribute.value, nideshop_attribute.name').join('nideshop_attribute ON nideshop_goods_attribute.attribute_id=nideshop_attribute.id').order({'nideshop_goods_attribute.id': 'asc'}).where({'nideshop_goods_attribute.goods_id': goodsId}).select();
-    // console.log('..........');
-    console.log(this.ctx.origin);
-    // console.log('..........');
-    
+    const data = await model.field(['nideshop_category.name as category_name','nideshop_goods.*']).join('nideshop_category ON nideshop_goods.category_id=nideshop_category.id').where({'nideshop_goods.name': ['like', `%${name}%`],'nideshop_goods.is_delete':0}).order(['nideshop_goods.id DESC']).page(page, size).countSelect();
+    //var where={db.prefix + 'goods.name'  : ['like', `%${name}%`],db.prefix + 'goods.is_delete' : 0};
+    // const data = await model.field([db.prefix + 'category.name as category_name', db.prefix + 'goods.*']).join(db.prefix + 'category ON ' + db.prefix + 'goods.category_id=' + db.prefix + 'category.id')
+    //   .where({db.prefix + 'goods.name'  : ['like', `%${name}%`],db.prefix + 'goods.is_delete' : 0})
+    //   .order([db.prefix + 'goods.id DESC']).page(page, size).countSelect();
+
+    // const data = await model.field([db.prefix+'category.name as category_name', db.prefix+'goods.*']).join(db.prefix+'category ON '+db.prefix+'goods.category_id='+db.prefix+'category.id').page(page, size).countSelect();
+
+    // var sql ="select nc.`name`,g.* from nideshop_goods g JOIN nideshop_category nc ON g.category_id=nc.id where g.`name` like '%%' ORDER BY g.id desc limit "+(page-1)*size+","+size;
+    // const data=await model.query(sql);
+
+    // console.log(this.ctx.origin);
+
+    // console.log(data);
     return this.success(data);
   }
 
   async infoAction() {
     const id = this.get('id');
     const model = this.model('goods');
-    const data = await model.where({id: id}).find();
+    const data = await model.where({
+      id: id
+    }).find();
 
     return this.success(data);
   }
@@ -42,21 +52,26 @@ const data = await model.field(['nideshop_category.name as category_name','nides
     values.is_on_sale = values.is_on_sale ? 1 : 0;
     values.is_new = values.is_new ? 1 : 0;
     values.is_hot = values.is_hot ? 1 : 0;
+    var valuesProduct = {
+      goods_id: values.id,
+      goods_sn: values.goods_sn,
+      retail_price: values.retail_price,
+      goods_number: values.goods_number
+    };
     if (id > 0) {
-      await model.where({id: id}).update(values);
+      await model.where({
+        id: id
+      }).update(values);
+      await this.model('product').where({
+        goods_id: id
+      }).update(valuesProduct);
     } else {
-      //delete values.id;
+      //  delete values.id;
       // await model.add(values);
-      //g_mod
-      values.id=values.goods_sn>>0;
-      const modelProduct =this.model('product');
+      //  g_mod
+      values.id = values.goods_sn >> 0;
+      const modelProduct = this.model('product');
       await model.add(values);
-      var valuesProduct={
-        goods_id:values.id
-        ,goods_sn:values.goods_sn
-        ,retail_price:values.retail_price
-        ,goods_number:values.goods_number
-      };
       await modelProduct.add(valuesProduct);
     }
     return this.success(values);
@@ -64,15 +79,23 @@ const data = await model.field(['nideshop_category.name as category_name','nides
 
   async destoryAction() {
     const id = this.post('id');
-    await this.model('goods').where({id: id}).limit(1).delete();
+    //  标记删除，商品一般情况下不能真正删除。
+    await this.model('goods').where({
+      id: id
+    }).update({
+      is_delete: 1
+    });
+    //  真正删除商品，慎用。
+    // await this.model('goods').where({id: id}).limit(1).delete();
+    // await this.model('product').where({goods_id: id}).delete();
     // TODO 删除图片
 
     return this.success();
   }
-  async getAllCategoryAction(){
-    const model   =this.model('category');
-      const data=await model.select();
+  async getAllCategoryAction() {
+    const model = this.model('category');
+    const data = await model.select();
 
-      return this.success(data);
+    return this.success(data);
   }
 };

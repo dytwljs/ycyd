@@ -1,7 +1,4 @@
-const util = require('../../utils/util.js');
-const api = require('../../config/api.js');
-const user = require('../../services/user.js');
-// const app =require('../../app');
+// pages/index/index.js
 var app = getApp();
 Page({
 
@@ -9,90 +6,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    newGoods: [],
-    hotGoods: [],
-    topics: [],
-    brands: [],
-    floorGoods: [],
-    banner: [],
-    channel: []
-    ,urlPrefix:null
+
   },
 
-  getIndexData: function () {
-    let that = this;
-    util.request(api.IndexUrl).then(function (res) {
-      if (res.errno === 0) {
-        that.setData({
-          newGoods: res.data.newGoodsList,
-          hotGoods: res.data.hotGoodsList,
-          topics: res.data.topicList,
-          brand: res.data.brandList,
-          floorGoods: res.data.categoryList,
-          banner: res.data.banner,
-          channel: res.data.channel
-        });
-      }
-    });
+  getPhoneNumber: function(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log('option->');
-    console.log(options);
-    app.globalData.scene="832bb850-2162-4e42-7060796a2fb8";
-    this.setData({urlPrefix:api.HOST});
-    this.getIndexData();
+  onLoad: function(options) {
+    // console.log('index onLoad option->');
+    // console.log(options);
+    // app.globalData.scene="832bb850-2162-4e42-7060796a2fb8";
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  }
+  onShareAppMessage: function() {
+    return {
+      title: '一车一店',
+      desc: '一车一店新零售',
+      path: '/pages/index/index' + '?scene=' + app.globalData.scene,
+      success: function(res) {
+        console.log(res.shareTickets[0]);
+      },
+      fail: function(res) {
+        console.log('转发到群/好友失败');
+      }
+    }
 
+  }
 })

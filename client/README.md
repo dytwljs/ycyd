@@ -1,12 +1,3 @@
-### NideShop商城（微信小程序端）
-
-+ 界面高仿网易严选商城(主要是2016年wap版)
-+ 测试数据采集自网易严选商城
-+ 功能和数据库参考ecshop
-+ 服务端api基于Ｎode.js+ThinkJS+MySQL
-+ 计划添加基于Vue.js的后台管理系统、PC版、Ｗap版
-
-**注意：当前版本功能还未完善，请勿商用。**
 
 本项目需要配合NideShop商城服务端使用，GitHub: [https://github.com/tumobi/nideshop](https://github.com/tumobi/nideshop)
 
@@ -91,5 +82,25 @@
 + 微信号 tumobi
 + 交流 QQ 群：497145766
 
+
+
+charSet:"UTF-8"
+errMsg:"scanCode:ok"
+rawData:"aHR0cDovL3d3dy5iZW5zZWRzLmNvbQ=="
+result:"http://www.benseds.com"
+scanType:"QR_CODE"
+
+charSet:"UTF-8"
+errMsg:"scanCode:ok"
+path:"pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8"
+rawData:"bGxqbnlTVzstUlhtTkpDZlBfKWU5QjE2Mi00ZTQyLTcwNjA3OTZhMmZiOA=="
+result:"http://lljnySW;-RXmNJCfP_)e9B162-4e42-7060796a2fb8"
+scanType:"WX_CODE"
+
+charSet:"UTF-8"
+errMsg:"scanCode:ok"
+rawData:"NjkwMTAyODE4MzIyMg=="
+result:"6901028183222"
+scanType:"EAN_13"
 
 

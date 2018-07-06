@@ -7,7 +7,7 @@ module.exports = class extends think.Model {
    */
   generateOrderNumber() {
     const date = new Date();
-    return date.getFullYear() + _.padStart(date.getMonth(), 2, '0') + _.padStart(date.getDay(), 2, '0') + _.padStart(date.getHours(), 2, '0') + _.padStart(date.getMinutes(), 2, '0') + _.padStart(date.getSeconds(), 2, '0') + _.random(100000, 999999);
+    return date.getFullYear() + _.padStart(date.getMonth()+1, 2, '0') + _.padStart(date.getDate(), 2, '0') + _.padStart(date.getHours(), 2, '0') + _.padStart(date.getMinutes(), 2, '0') + _.padStart(date.getSeconds(), 2, '0') + _.random(100000, 999999);
   }
 
   /**
@@ -27,7 +27,9 @@ module.exports = class extends think.Model {
       buy: false // 再次购买
     };
 
-    const orderInfo = await this.where({id: orderId}).find();
+    const orderInfo = await this.where({
+      id: orderId
+    }).find();
 
     // 订单流程：下单成功－》支付订单－》发货－》收货－》评论
     // 订单相关状态字段设计，采用单个字段表示全部的订单状态
@@ -70,16 +72,46 @@ module.exports = class extends think.Model {
   }
 
   async getOrderStatusText(orderId) {
-    const orderInfo = await this.where({id: orderId}).find();
+    const orderInfo = await this.where({
+      id: orderId
+    }).find();
     let statusText = '未付款';
     switch (orderInfo.order_status) {
       case 0:
         statusText = '未付款';
         break;
+      case 101:
+        statusText = '已取消';
+        break;
+      case 102:
+        statusText = '已删除';
+        break;
+      case 201:
+        statusText = '等待发货';
+        break;
+      case 300:
+        statusText = '已发货';
+        break;
+      case 301:
+        statusText = '已收货';
+        break;
+      case 401:
+        statusText = '没有发货，退款';
+        break;
+      case 402:
+        statusText = '已收货，退款退货';
+        break;
     }
 
     return statusText;
   }
+  // 订单流程：下单成功－》支付订单－》发货－》收货－》评论
+  // 订单相关状态字段设计，采用单个字段表示全部的订单状态
+  // 1xx表示订单取消和删除等状态 0订单创建成功等待付款，101订单已取消，102订单已删除
+  // 2xx表示订单支付状态,201订单已付款，等待发货
+  // 3xx表示订单物流相关状态,300订单已发货，301用户确认收货
+  // 4xx表示订单退换货相关的状态,401没有发货，退款402,已收货，退款退货
+  // 如果订单已经取消或是已完成，则可删除和再次购买
 
   /**
    * 更改订单支付状态
@@ -88,7 +120,11 @@ module.exports = class extends think.Model {
    * @returns {Promise.<boolean>}
    */
   async updatePayStatus(orderId, payStatus = 0) {
-    return this.where({id: orderId}).limit(1).update({pay_status: parseInt(payStatus)});
+    return this.where({
+      id: orderId
+    }).limit(1).update({
+      pay_status: parseInt(payStatus)
+    });
   }
 
   /**
@@ -100,6 +136,8 @@ module.exports = class extends think.Model {
     if (think.isEmpty(orderSn)) {
       return {};
     }
-    return this.where({order_sn: orderSn}).find();
+    return this.where({
+      order_sn: orderSn
+    }).find();
   }
 };

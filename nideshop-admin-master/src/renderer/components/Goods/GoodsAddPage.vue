@@ -24,6 +24,10 @@
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="infoForm.name"></el-input>
           </el-form-item>
+
+          <el-form-item label="条件码" prop="ean_code">
+            <el-input v-model="infoForm.ean_code"></el-input>
+          </el-form-item>
           <el-form-item label="商品价格" prop="retail_price">
             <el-input v-model="infoForm.retail_price"></el-input>
           </el-form-item>
@@ -59,7 +63,8 @@
             <el-upload class="image-uploader-diy" name="brand_pic"
                        :action="axios.defaults.baseURL+'upload/brandPic'" :show-file-list="true"
                        :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
-              <img v-if="infoForm.list_pic_url" :src="infoForm.list_pic_url" class="image-show">
+              <img v-if="infoForm.list_pic_url" :src="axios.defaults.baseHOST+infoForm.list_pic_url" class="image-show">
+              <!-- <img v-if="infoForm.list_pic_url" :src="infoForm.list_pic_url" class="image-show"> -->
               <i v-else class="el-icon-plus image-uploader-icon"></i>
             </el-upload>
             <div class="form-tip">图片尺寸：800*800</div>
@@ -100,7 +105,7 @@
             </div>
           </el-form-item>
           <el-form-item label="规格/库存" prop="goods_number">
-            <el-input v-model="infoForm.goods_number"></el-input>
+            <el-input type="number" v-model="infoForm.goods_number"></el-input>
           </el-form-item>
           <el-form-item label="推荐类型">
             <el-checkbox-group v-model="infoForm.is_new">
@@ -202,6 +207,9 @@
           list_pic_url: [
             { required: true, message: '请选择商品图片', trigger: 'blur' },
           ],
+          goods_number: [
+            {required: true, min:1, max:8,message: '请输入8位数字', trigger: 'blur' },
+          ],
         },
       }
     },
@@ -267,12 +275,14 @@
           switch (res.data.name) {
             //商品图片
             case 'brand_pic':
-              this.infoForm.list_pic_url = res.data.fileUrl;
+              // this.infoForm.list_pic_url = res.data.fileUrl;
+              this.infoForm.list_pic_url = res.data.fileName;
               this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.list_pic_url', res.data.fileUrl);
               break;
             case 'brand_new_pic':
-              this.infoForm.new_pic_url = res.data.fileUrl;
+              // this.infoForm.new_pic_url = res.data.fileUrl;
+              this.infoForm.new_pic_url = res.data.fileName;
               this.infoForm.fileName=res.data.fileName;
               // this.$set('infoForm.new_pic_url', res.data.fileUrl);
               break;

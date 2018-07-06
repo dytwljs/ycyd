@@ -53,6 +53,7 @@ module.exports = class extends Base {
         last_login_ip: clientIp,
         mobile: '',
         weixin_openid: sessionData.openid,
+        weixin_unionid:weixinUserInfo.unionId,
         avatar: userInfo.avatarUrl || '',
         gender: userInfo.gender || 1, // 性别 0：未知、1：男、2：女
         nickname: userInfo.nickName

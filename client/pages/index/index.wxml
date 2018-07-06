@@ -1,55 +1,51 @@
-<wxs module="parses" src="../../utils/common.wxs"/>
+<!-- pages/qrcode/index.wxml -->
+<wxs module="parses" src="../../utils/common.wxs" />
 <view class="container">
-
-  <view class="a-section a-topic" wx:if="topics.length > 0">
-    <!-- <view class="h">
-      <view>
-      <navigator url="../topic/topic" open-type="switchTab">
-        <text class="txt">老靓铺</text>
-        </navigator>
-      </view>
-    </view> -->
-    <view class="b">
-      <scroll-view scroll-x="true" class="list">
-        <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-          <navigator url="../topicDetail/topicDetail?id={{item.id}}">
-            <image class="img" src="{{item.scene_pic_url}}" background-size="cover"></image>
-            <view class="np">
-              <text class="name">{{app.globalData.userInfo.username}}</text>
-              <text class="name">{{item.title}}</text>
-              <!-- <text class="name">{{parses.replacePrefix(item.title,urlPrefix)}}</text> -->
-              <text class="price">￥{{item.price_info}}元起</text>
-            </view>
-            <text class="desc">{{item.subtitle}}</text>
-          </navigator>
+  <view wx:for="{{storeSale}}" wx:key="{{item.id}}">
+    <view class="goods">
+      <view class="info">
+        <view class="t">
+          <text class="name">{{item.sale_name+'的小店'}}</text>
         </view>
-      </scroll-view>
+      </view>
     </view>
   </view>
-    <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
-    <view class="h">
-      <view>
-        <navigator url="../hotGoods/hotGoods">
-          <text class="txt">车上精品</text>
-        </navigator>
-      </view>
-    </view>
-    <view class="b">
-      <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-        <navigator url="/pages/goods/goods?id={{item.id}}">
-          <!--     {{parses.urlPrefix(item.list_pic_url,urlPrefix)}}
-          <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image> -->
-          
-          <image class="img" src="{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}" background-size="cover"></image>
-          <view class="right">
-            <view class="text">
-               <text class="name">{{item.name}}</text>
-              <text class="desc">{{item.goods_brief}}</text>
-              <text class="price">￥{{item.retail_price}}</text>
+  <view class="scan">
+    <button class="b" bindtap='scan'>扫码</button>
+  </view>
+  <view class="cart-view" wx:if="{{storeList.length > 0}}">
+    <view class="list">
+      <view class="group-item">
+        <view class="goods">
+          <view class="item {{isEditCart ? 'edit' : ''}}" wx:for="{{storeList}}" wx:key="{{item.id}}">
+            <view class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
+            <view class="cart-goods">
+              <image class="img" src="{{parses.urlPrefix(item.list_pic_url,urlPrefix)}}"></image>
+              <view class="info">
+                <view class="b">
+                  <text class="name">{{item.goods_name}}</text>
+                </view>
+                <!-- <view class="attr">{{ isEditCart ? '已选择:' : ''}}{{item.goods_specifition_name_value}}</view> -->
+                <view class="b">
+                  <text class="price">￥{{item.retail_price}}</text>
+                  <!-- <view class="selnum">
+                    <view class="cut" bindtap="cutNumber" data-item-index="{{index}}">-</view>
+                    <input value="{{item.number}}" class="number" disabled="true" type="number" />
+                    <view class="add" bindtap="addNumber" data-item-index="{{index}}">+</view>
+                  </view> -->
+                </view>
+              </view>
             </view>
           </view>
-        </navigator>
+        </view>
       </view>
     </view>
+    <view class="cart-bottom">
+      <!-- <view class="checkbox {{checkedAllStatus ? 'checked' : ''}}" bindtap="checkedAll">全选({{cartTotal.checkedGoodsCount}})</view>
+      <view class="total">{{!isEditCart ? '￥'+cartTotal.checkedGoodsAmount : ''}}</view>
+      <view class="delete" bindtap="editCart">{{!isEditCart ? '编辑' : '完成'}}</view>
+      <view class="checkout" bindtap="deleteCart" wx:if="{{isEditCart}}">删除所选</view>
+      <view class="checkout" bindtap="checkoutOrder" wx:if="{{!isEditCart}}">下单</view> -->
+    </view>
   </view>
- </view>
+</view>

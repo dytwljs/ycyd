@@ -70,6 +70,10 @@
                     <i class="fa fa-circle"></i>
                     <span>经销商管理</span>
                 </el-menu-item>
+                <el-menu-item index="/dashboard/storeEnter">
+                    <i class="fa fa-circle"></i>
+                    <span>库存管理</span>
+                </el-menu-item>
                 <el-menu-item index="/dashboard/operate/topic">
                     <i class="fa fa-circle"></i>
                     <span>专题管理</span>
