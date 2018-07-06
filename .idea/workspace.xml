@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="80ad57d6-d1bf-4524-9598-8393d4889728" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app.json.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/cart/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/cart/cart.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/cart/cart.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/goods/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/goods/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/goods/goods.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/goods/goods.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/goods/goods.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/goods/goods.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/shopping/checkout/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/shopping/checkout/checkout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/shopping/checkout/checkout.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/shopping/checkout/checkout.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/ucenter/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/ucenter/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/ycyd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/ycyd/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/z_test_rwm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/z_test_rwm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/z_test_rwm/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/z_test_rwm/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/z_test_rwm/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/z_test_rwm/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Ad/AdAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Ad/AdAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Brand/BrandAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Brand/BrandAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Category/CategoryAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Category/CategoryAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Channel/ChannelAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Channel/ChannelAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Goods/GoodsAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Goods/GoodsAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/GoodsGallery/GoodsGalleryAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/GoodsGallery/GoodsGalleryAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Order/OrderDetailPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Order/OrderDetailPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Topic/TopicAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/Topic/TopicAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/User/UserAddPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/components/User/UserAddPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/nideshop-admin-master/src/renderer/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/server/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/admin/controller/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/controller/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/common/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/common/config/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/common/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/common/config/database.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/api/controller/catalog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goods.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/api/controller/goods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/api/controller/cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="230" column="8" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getDate</find>
+      <find>c</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/server/src/api/controller/base.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="/usr/local/lib/node_modules/bower" />
+    <bower.json value="" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/nideshop-admin-master/node_modules" />
+    <handled-path value="$PROJECT_DIR$/server/node_modules" />
+    <handled-path value="$PROJECT_DIR$/testCon/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/nideshop-admin-master/package.json" />
+      <path value="$PROJECT_DIR$/server/package.json" />
+      <path value="$PROJECT_DIR$/testCon/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="969" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers Scope="true" ProjectPane="true" />
+      <autoscrollToSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Changed Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="client" type="cbb8eebc:String" user="client" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="client" type="cbb8eebc:String" user="client" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="server" type="cbb8eebc:String" user="server" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="server" type="cbb8eebc:String" user="server" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="server" type="cbb8eebc:String" user="server" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="admin" type="cbb8eebc:String" user="admin" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ycyd" type="cbb8eebc:String" user="ycyd" />
+              <item name="server" type="cbb8eebc:String" user="server" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="admin" type="cbb8eebc:String" user="admin" />
+              <item name="controller" type="cbb8eebc:String" user="controller" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="/usr/local/lib/node_modules/eslint" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80ad57d6-d1bf-4524-9598-8393d4889728" name="Default" comment="" />
+      <created>1528513738476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528513738476</updated>
+      <workItem from="1528513743785" duration="1869000" />
+      <workItem from="1528517640952" duration="292000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2161000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="969" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.54833335" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005952" side_tool="true" visible="true" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.45166665" side_tool="true" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49940476" weight="0.32960895" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="ycyd" type="b2602c69:ProjectViewProjectNode" />
+        <item name="ycyd" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/client/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/catalog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/brand/brand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-333" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/address.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nideshop-admin-master/src/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/catalog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/goods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/controller/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="230" column="8" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

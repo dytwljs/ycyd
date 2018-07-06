@@ -27,7 +27,7 @@
                     </el-form-item>
                     <el-form-item label="图标" prop="wap_banner_url">
                         <el-upload class="image-uploader" name="wap_banner_pic"
-                                   action="http://127.0.0.1:8360/admin/upload/categoryWapBannerPic" :show-file-list="false"
+                                   :action="axios.defaults.baseURL+'upload/categoryWapBannerPic'" :show-file-list="false"
                                    :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
                             <img v-if="infoForm.wap_banner_url" :src="infoForm.wap_banner_url" class="image-show">
                             <i v-else class="el-icon-plus image-uploader-icon"></i>
@@ -52,9 +52,11 @@
 
 <script>
   import api from '@/config/api';
+ // this.api = api;
   export default {
     data() {
       return {
+        rootHost:this.axios.defaults.baseHOST,
         uploaderHeader: {
           'X-Nideshop-Token': localStorage.getItem('token') || '',
         },
@@ -93,6 +95,7 @@
       onSubmitInfo() {
         this.$refs['infoForm'].validate((valid) => {
           if (valid) {
+            this.infoForm.wap_banner_url=this.infoForm.fileName;
             this.axios.post('category/store', this.infoForm).then((response) => {
               if (response.data.errno === 0) {
                 this.$message({
@@ -119,6 +122,7 @@
             case 'wap_banner_url':
               // this.$set('infoForm.wap_banner_url', res.data.fileUrl);
               this.infoForm.wap_banner_url = res.data.fileUrl;
+              this.infoForm.fileName = res.data.fileName;
               break;
           }
         }
@@ -143,6 +147,10 @@
           let resInfo = response.data.data;
           resInfo.is_show = resInfo.is_show ? true : false;
           that.infoForm = resInfo;
+          console.log(that.api);
+          console.log(rootHost);
+          console.log(api.rootHost);
+          that.infoForm.wap_banner_url=that.rootHost +that.infoForm.wap_banner_url;
         })
       }
 

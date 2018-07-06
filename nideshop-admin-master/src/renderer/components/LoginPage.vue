@@ -8,6 +8,7 @@
                 <p class="tips">欢迎使用NideShop后台管理</p>
                 <el-form ref="form" :model="form" :rules="rules" label-position="top">
                     <el-form-item label="" prop="username">
+                        <!-- <el-input v-model="form.username" :placeholder="axios.defaults.baseURL+'sss'"></el-input> -->
                         <el-input v-model="form.username" placeholder="用户名"></el-input>
                     </el-form-item>
                     <el-form-item label="" prop="password">
@@ -26,6 +27,7 @@
     </div>
 </template>
 <script>
+import api from '@/config/api'
     export default {
         data() {
             return {
@@ -42,8 +44,7 @@
                         {min: 6, message: '密码不得低于6个字符', trigger: 'blur'},
                     ],
                 },
-                loading: false,
-            }
+                loading: false,}
         },
         components: {},
         methods: {
@@ -55,8 +56,10 @@
                     }
 
                     this.loading = true;
-
-                    this.axios.post('http://127.0.0.1:8360/admin/auth/login', {
+                    // console.log('..........');
+                    // console.log(this.axios.defaults.baseURL);
+                    // console.log('..........');
+                    this.axios.post(this.axios.defaults.baseURL+'auth/login', {
                         username: this.form.username,
                         password: this.form.password
                     }).then((res) => {

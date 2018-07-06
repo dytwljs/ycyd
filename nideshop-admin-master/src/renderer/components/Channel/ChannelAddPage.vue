@@ -23,7 +23,7 @@
 
           <el-form-item label="Icon图片" prop="icon_url">
             <el-upload class="image-uploader" name="icon_pic"
-                       action="http://127.0.0.1:8360/admin/upload/channelIconPic" :show-file-list="true"
+                       :action="axios.defaults.baseURL+'upload/channelIconPic'" :show-file-list="true"
                        :on-success="handleUploadImageSuccess" :headers="uploaderHeader">
               <img v-if="infoForm.icon_url" :src="infoForm.icon_url" class="image-show">
               <i v-else class="el-icon-plus image-uploader-icon"></i>

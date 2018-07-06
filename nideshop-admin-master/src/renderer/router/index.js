@@ -166,6 +166,16 @@ export default new Router({
                     name: 'goodsgallery_add',
                     component: require('@/components/GoodsGallery/GoodsGalleryAddPage')
                 },
+                {
+                    path: 'sale',
+                    name: 'sale',
+                    component: require('@/components/Sale/SalePage')
+                },
+                {
+                    path: 'sale/add',
+                    name: 'sale_add',
+                    component: require('@/components/Sale/SaleAddPage')
+                },
             ]
         },
         {

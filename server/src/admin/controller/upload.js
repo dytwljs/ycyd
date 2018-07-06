@@ -1,6 +1,6 @@
 const Base = require("./base.js");
 const fs = require("fs");
-
+// var host = this.ctx.origin;
 module.exports = class extends Base {
   async brandPicAction() {
     const brandFile = this.file("brand_pic");
@@ -22,7 +22,10 @@ module.exports = class extends Base {
 
     return that.success({
       name: "brand_pic",
-      fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: this.ctx.origin + filename
+      fileUrl:  this.ctx.origin + filename
+      ,fileName:filename
     });
   }
 
@@ -40,7 +43,10 @@ module.exports = class extends Base {
 
     return that.success({
       name: "brand_new_pic",
-      fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: this.ctx.origin + filename
+      fileUrl:  this.ctx.origin + filename
+      ,fileName:filename
     });
   }
 
@@ -57,7 +63,9 @@ module.exports = class extends Base {
     is.pipe(os);
     return that.success({
       name: "wap_banner_url",
-      fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: "http://127.0.0.1:8360" + filename
+      fileUrl:  this.ctx.origin + filename
+      ,fileName:filename
     });
   }
 
@@ -75,7 +83,9 @@ module.exports = class extends Base {
 
     return that.success({
       name: "scene_pic_url",
-      fileUrl: "http://127.0.0.1:8360" + filename
+      // fileUrl: "http://127.0.0.1:8360" + filename
+      fileUrl:  this.ctx.origin + filename
+      ,fileName:filename
     });
   }
 };

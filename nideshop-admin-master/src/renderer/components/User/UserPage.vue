@@ -3,7 +3,7 @@
 		<div class="content-nav">
 			<el-breadcrumb class="breadcrumb" separator="/">
 				<el-breadcrumb-item :to="{ path: '/dashboard' }">首页</el-breadcrumb-item>
-				<el-breadcrumb-item>商品管理</el-breadcrumb-item>
+				<el-breadcrumb-item>会员管理</el-breadcrumb-item>
 				<el-breadcrumb-item>会员列表</el-breadcrumb-item>
 			</el-breadcrumb>
 			<div class="operation-nav">
@@ -33,12 +33,16 @@
 					</el-table-column>
 					<el-table-column prop="gender" label="性别" width="120">
 						<template scope="scope">
-							{{ scope.row.gender == 1 ? '女' : '男' }}
+							{{ scope.row.gender == 1 ?  '男' :'女' }}
 						</template>
 					</el-table-column>
 					<el-table-column prop="mobile" label="手机号">
 					</el-table-column>
 					<el-table-column prop="register_time" label="注册时间">
+						<template scope="scope">
+							{{ scope.row.register_time| formatDate }}
+						</template>
+
 					</el-table-column>
 					<el-table-column label="操作" width="140">
 						<template scope="scope">
@@ -57,8 +61,15 @@
 </template>
 
 <script>
-
+import {formatDate} from '../../../utils/utils.js';
 export default {
+
+    filters: {
+        formatDate(time) {
+            var date = new Date(time);
+            return formatDate(date, 'yyyy-MM-dd hh:mm');
+        }
+    },
 	data() {
 		return {
 			page: 1,

@@ -1,0 +1,11 @@
+<!--pages/z_test_rwm/index.wxml-->
+<button   bindtap="button1" class="btnLeft" >1.不加页面arry</button>
+<button   bindtap="button2"  class="btnRight">1.不加页面text</button>
+<button  bindtap="button3"  class="btnLeft">i.加页面array</button>
+<button  bindtap="button4"  class="btnRight">i.加页面texta</button>
+<button  bindtap="button5"  class="btnLeft">y.加页面array</button>
+<button  bindtap="button6"  class="btnRight">y.加页面texta</button>
+<button  bindtap="button7"  class="btnLeft">t.加页面array</button>
+<button  bindtap="button8"  class="btnRight">t.加页面texta</button>
+<image style='width:430rpx;height:430rpx;' src="{{pic}}"> </image>
+

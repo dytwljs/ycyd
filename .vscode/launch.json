@@ -14,8 +14,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "launch",
-      "program": "${workspaceFolder}/server/development.js"
+      "name": "testCon",
+      "program": "${workspaceFolder}/testCon/index.js"
     }
   ]
 }
