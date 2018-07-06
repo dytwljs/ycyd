@@ -19,7 +19,7 @@ function payOrder(orderId) {
         wx.requestPayment({
           'timeStamp': payParam.timeStamp,
           'nonceStr': payParam.nonceStr,
-          'package': payParam.package,
+          'package': payParam.package, 
           'signType': payParam.signType,
           'paySign': payParam.paySign,
           'success': function (res) {
