@@ -1,6 +1,8 @@
 // pages/qrcode/index.js
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+var user = require('../../services/user.js');
+var app = getApp();
 Page({
     /**
      * 页面的初始数据
@@ -8,20 +10,22 @@ Page({
     data: {
         storeList: [],
         storeSale: {},
-        isEditCart: true
-        ,isAuthorize:false
+        isEditCart: true,
+        isAuthorize: false
     },
-    handScene: function(scene) {
+    handScene: function (scene) {
 
         let that = this;
-        util.request(api.StoreSale, { id: scene }, 'POST').then(function(res) {
+        util.request(api.StoreSale, {
+            id: scene
+        }, 'POST').then(function (res) {
             if (res.errno === 0) {
                 console.log(res.data);
                 that.setData({
                     //storeList: res.data.storeList,
                     storeSale: res.data.storeSale
                 });
-                res.data.storeList.forEach(function(e) {
+                res.data.storeList.forEach(function (e) {
                     var store = that.data.storeList.find((st) => {
                         if (st.id == e.id)
                             return st;
@@ -38,9 +42,11 @@ Page({
             }
         });
     },
-    handEan: function(ean_code) {
+    handEan: function (ean_code) {
         let that = this;
-        util.request(api.StoreEan, { ean_code: ean_code }, 'POST').then(function(res) {
+        util.request(api.StoreEan, {
+            ean_code: ean_code
+        }, 'POST').then(function (res) {
             if (res.errno === 0) {
                 console.log(res.data);
                 // that.setData({
@@ -56,7 +62,7 @@ Page({
             }
         });
     },
-    scan: function(e) {
+    scan: function (e) {
         let that = this;
         // 允许从相机和相册扫码
         wx.scanCode({
@@ -94,7 +100,7 @@ Page({
             }
         })
     },
-    getScene: function(path) {
+    getScene: function (path) {
         // var res = { path: 'pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8' };
         var scene = null;
         if (path.indexOf('?') != -1) {
@@ -106,7 +112,7 @@ Page({
         return scene;
     },
 
-    checkedItem: function(event) {
+    checkedItem: function (event) {
         let itemIndex = event.target.dataset.itemIndex;
         let that = this;
 
@@ -144,58 +150,73 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
+
+        // if (!app.globalData.isAuthorize) {
+        //     wx.navigateTo({
+        //         url: '../../pages/ucenter/auth/login',
+        //     });
+        //     return;
+        // }
         // var scene = wx.getStorageSync('scene');
-        var scene=getApp().globalData.scene;
-        if(scene!='undefined')
+        var scene = app.globalData.scene;
+        if (scene != 'undefined')
             this.handScene(scene);
+    },
+    onGotUserInfo: function (e) {
+        console.log(e.detail.errMsg)
+        if (e.detail.userInfo) {
+            console.log(e.detail.userInfo)
+            console.log(e.detail.rawData)
+        }
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
-
-    },
+    onReady: function () {},
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
+        // if (!getApp().globalData.isAuthorize)
+        //     wx.navigateTo({
+        //         url: '../../pages/ucenter/auth/login',
+        //     });
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
-    },
+    onHide: function () {},
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

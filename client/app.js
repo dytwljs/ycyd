@@ -4,11 +4,11 @@ var user = require('./services/user.js');
 /** 
  * wx.getStorageSync('userInfo')  用户信息
  * wx.getStorageSync('token')     
- * wx.getStorageSync('scene')       二维码传入参数
- * wx.getStorageSync('saleInfo')    分销商司机信息
  *  wx.getStorageSync('addressId')    地址信息
- * wx.getStorageSync('isAuthorize')   授权
- * 
+ * globalData.scene
+ * globalData.saleInfo
+ * globalData.userInfo
+ * globalData.isAuthorize
 */
 App({
   onLaunch: function (options) {
@@ -19,6 +19,8 @@ App({
       console.log('app login')
       this.globalData.userInfo = wx.getStorageSync('userInfo');
       this.globalData.token = wx.getStorageSync('token');
+      //g_add
+      this.globalData.isAuthorize  =true;
     }).catch((e) => {
         console.log("App  user.checkLogin error")
         console.log(e)
@@ -43,12 +45,12 @@ App({
   
   globalData: {
     scene:''
+    ,isAuthorize:false
     ,saleInfo:{}    
     ,userInfo: {
       nickname: 'Hi,游客',
       username: '点击去登录',
       avatar: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
-      ,isAuthorize:false
     },
     token: '',
   }

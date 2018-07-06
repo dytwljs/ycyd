@@ -1,0 +1,13 @@
+
+   
+
+<view class="container" wx:if="{{!isAuthorize}}">
+<text> \n \n\n \n\n \n\n \n </text>
+    <button class='login' open-type="getUserInfo" bindtap="goLogin">登录</button>
+<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button> -->
+    
+    <text> \n \n </text>
+    <view class='vwExit'>
+      <navigator class="exit" open-type="exit" target="miniProgram">退出小程序</navigator> 
+    </view>
+</view>

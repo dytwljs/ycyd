@@ -82,25 +82,34 @@
 + 微信号 tumobi
 + 交流 QQ 群：497145766
 
+登录流程候改。
+原  
+一，app.js 
+1,user.checkLogin
+            if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')
+                util.checkSession()
 
+2,this.globalData.userInfo = wx.getStorageSync('userInfo');
+      this.globalData.token = wx.getStorageSync('token');
+二，auth/login.js
+1，user.loginByWeixin().then(res => {
+      this.setData({
+        userInfo: res.data.userInfo
 
-charSet:"UTF-8"
-errMsg:"scanCode:ok"
-rawData:"aHR0cDovL3d3dy5iZW5zZWRzLmNvbQ=="
-result:"http://www.benseds.com"
-scanType:"QR_CODE"
+      });
+      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.token = res.data.token;
 
-charSet:"UTF-8"
-errMsg:"scanCode:ok"
-path:"pages/index/index?scene=832bb850-2162-4e42-7060796a2fb8"
-rawData:"bGxqbnlTVzstUlhtTkpDZlBfKWU5QjE2Mi00ZTQyLTcwNjA3OTZhMmZiOA=="
-result:"http://lljnySW;-RXmNJCfP_)e9B162-4e42-7060796a2fb8"
-scanType:"WX_CODE"
-
-charSet:"UTF-8"
-errMsg:"scanCode:ok"
-rawData:"NjkwMTAyODE4MzIyMg=="
-result:"6901028183222"
-scanType:"EAN_13"
-
-
+三，users.
+    util.login().then((res) => {
+      code = res.code;
+      return util.getUserInfo();
+    }).then((userInfo) => {
+      //登录远程服务器
+      util.request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
+        if (res.errno === 0) {
+          //存储用户信息
+          wx.setStorageSync('userInfo', res.data.userInfo);
+          wx.setStorageSync('token', res.data.token);
+现有流程
+一，判断

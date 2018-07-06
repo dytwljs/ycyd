@@ -1,0 +1,30 @@
+/* pages/ucenter/auth/login.wxss */
+
+.container{
+    text-align: center;
+    height: 100%;
+}
+.login{
+    width: 60%;
+    font-size: 36rpx;
+    text-align: center;
+    padding: 30rpx;
+    border: 5rpx solid silver;
+    border-radius: 3%;
+}
+.vwExit{
+
+    text-align: center;  
+}
+.exit{
+    width: 60%;
+    font-size: 36rpx;
+    text-align: center;
+    margin: 150rpx;
+    padding: 70rpx;
+    border: 5rpx solid silver;
+    border-radius: 3%;
+}
+
+
+

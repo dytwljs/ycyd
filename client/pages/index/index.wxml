@@ -48,4 +48,5 @@
       <view class="checkout" bindtap="checkoutOrder" wx:if="{{!isEditCart}}">下单</view> -->
     </view>
   </view>
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
 </view>
