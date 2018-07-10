@@ -10,15 +10,34 @@ module.exports = class extends think.Service {
     if (!token) {
       return 0;
     }
-
     const result = await this.parse();
     if (think.isEmpty(result) || result.user_id <= 0) {
       return 0;
     }
-
     return result.user_id;
   }
-
+  async getUserSessionKey() {
+    const token = think.token;
+    if (!token) {
+      return null;
+    }
+    const result = await this.parse();
+    if (think.isEmpty(result) || think.isEmpty(result.session_key)) {
+      return null;
+    }
+    return result.session_key;
+  }
+  async getUserByToken() {
+    const token = think.token;
+    if (!token) {
+      return null;
+    }
+    const result = await this.parse();
+    if (think.isEmpty(result) || result.user_id <= 0) {
+      return null;
+    }
+    return result;
+  }
   /**
    * 根据值获取用户信息
    */
@@ -28,7 +47,9 @@ module.exports = class extends think.Service {
       return null;
     }
 
-    const userInfo = await this.model('user').field(['id', 'username', 'nickname', 'gender', 'avatar', 'birthday']).where({ id: userId }).find();
+    const userInfo = await this.model('user').field(['id', 'openid', 'unionid', 'username', 'nickname', 'gender', 'avatar', 'birthday']).where({
+      id: userId
+    }).find();
 
     return think.isEmpty(userInfo) ? null : userInfo;
   }

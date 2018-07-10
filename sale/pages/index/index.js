@@ -11,7 +11,6 @@ Page({
         storeList: [],
         storeSale: {},
         isEditCart: true,
-        isAuthorize: false
     },
     handScene: function (scene) {
 
@@ -151,23 +150,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
-        // if (!app.globalData.isAuthorize) {
-        //     wx.navigateTo({
-        //         url: '../../pages/ucenter/auth/login',
-        //     });
-        //     return;
-        // }
+        // var scene = wx.getStorageSync('scene');
         var scene = app.globalData.scene;
         if (scene != 'undefined')
             this.handScene(scene);
-    },
-    onGotUserInfo: function (e) {
-        console.log(e.detail.errMsg)
-        if (e.detail.userInfo) {
-            console.log(e.detail.userInfo)
-            console.log(e.detail.rawData)
-        }
     },
 
     /**
@@ -179,10 +165,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // if (!getApp().globalData.isAuthorize)
-        //     wx.navigateTo({
-        //         url: '../../pages/ucenter/auth/login',
-        //     });
+        if (app.globalData.userInfo.authorize<9) {
+        wx.navigateTo({
+          url: '../../pages/ucenter/auth/login',
+        });
+        return;
+      }
 
     },
 

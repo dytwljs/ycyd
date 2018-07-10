@@ -11,9 +11,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
-	"appid": "wx1ca22e3163a07ec6",
-	"projectname": "ycyd",
+	"libVersion": "2.1.1",
+	"appid": "wx8532fc4e69761434",
+	"projectname": "sale",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -16,7 +16,7 @@ module.exports = class extends Base {
     if (parseInt(orderInfo.pay_status) !== 0) {
       return this.fail(400, '订单已支付，请不要重复操作');
     }
-    const openid = await this.model('user').where({ id: orderInfo.user_id }).getField('weixin_openid', true);
+    const openid = await this.model('user').where({ id: orderInfo.user_id }).getField('openid', true);
     if (think.isEmpty(openid)) {
       return this.fail('微信支付失败');
     }
@@ -35,11 +35,12 @@ module.exports = class extends Base {
       });
       //g_add 
       //标记订单已收货
-      // await this.model('order').where({id:orderId}).limit(1).update({order_status:301,pay_status:1});
+      await this.model('order').where({id:orderId}).limit(1).update({order_status:301,pay_status:1});
 
       return this.success(returnParams);
     } catch (err) {
-      return this.fail('微信支付失败');
+      // return this.fail('微信支付失败');
+      return this.fail(err);
     }
   }
 

@@ -5,6 +5,8 @@ module.exports = {
   weixin: {
     appid: 'wx1ca22e3163a07ec6', // 小程序 appid
     secret: 'cb8040536dcc0afb7e3eca7bde0d5ecd', // 小程序密钥
+    appid_sale: 'wx8532fc4e69761434', // 小程序 appid
+    secret_sale: '11370c13e883b4b09f13df7218dc511b', // 小程序密钥
     mch_id: '1504348391', // 商户帐号ID
     partner_key: 'cecdb8040536dcc0afb7e3eca7bde0d5', // 微信支付密钥
     notify_url: 'https://www.dtywljs.com/api/pay/notify' // 微信异步通知，例：https://www.nideshop.com/api/pay/notify

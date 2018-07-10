@@ -11,7 +11,8 @@ module.exports = {
     'brand',
     'search',
     'region',
-    'store'
+    'store',
+    'z_test'
   ],
 
   // 可以公开访问的Action
@@ -26,6 +27,7 @@ module.exports = {
     'cart/delete',
     'cart/goodscount',
     'pay/notify',
-    'store/index'
+    'store/index',
+    'test'
   ]
 };
