@@ -172,10 +172,44 @@ function checkLogin() {
   });
 }
 
+function getSaleInfo(id){
+  return new Promise(function (resolve, reject) {
+    return util.request(api.GetSaleInfo).then(res => {
+      if (res.errno == 0) {
+        //存储用户信息
+          wx.setStorageSync('userInfo', res.data.saleInfo);
+        resolve(res);
+      } else {
+        reject(res);
+      }
+    }).catch((err)=>{
+      reject(err);
 
+    })
+  });
+}
+
+function getUserInfo(id){
+  return new Promise(function (resolve, reject) {
+    return util.request(api.GetUserInfo).then(res => {
+      if (res.errno == 0) {
+        //存储用户信息
+          wx.setStorageSync('userInfo', res.data.userInfo);
+        resolve(res);
+      } else {
+        reject(res);
+      }
+    }).catch((err)=>{
+      reject(err);
+
+    })
+  });
+}
 module.exports = {
   loginByWeixin,
   checkLogin,
   getPhone,
-  getPhoneWithLogin
+  getPhoneWithLogin,
+  getUserInfo,
+  getSaleInfo
 };

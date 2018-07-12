@@ -209,7 +209,7 @@ module.exports = class extends Base {
         }).update({
           mobile: phone.phoneNumber,
           authorize: 9
-          ,name:sale_reg.name
+          ,username:sale_reg.name
           ,last_visit_time: parseInt(new Date().getTime() / 1000)
         });
         newUserInfo.authorize = 9;
@@ -220,7 +220,7 @@ module.exports = class extends Base {
         }).update({
           mobile: phone.phoneNumber,
           authorize: 3
-          ,name:sale_reg.name
+          ,username:sale_reg.name
           ,last_visit_time: parseInt(new Date().getTime() / 1000)
         });
         newUserInfo.authorize = 3;

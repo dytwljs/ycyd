@@ -4,18 +4,11 @@ const _ = require('lodash');
 
 module.exports = class extends Base {
   async infoAction() {
-    const userInfo = await this.model('user').where({
-      mobile: '15989389319'
-    }).find();
-    delete userInfo.password;
-    return this.json(userInfo);
-  }
-
-  async UserInfoAction() {
-    const userInfo = await this.model('user').where({
+    
+    const saleInfo = await this.model('sale').where({
       id: think.userId
     }).find();
-    return this.json(userInfo);
+    return this.success({saleInfo:saleInfo});
   }
 
   /**
@@ -28,7 +21,7 @@ module.exports = class extends Base {
       return this.fail('保存失败');
     }
 
-    const avatarPath = think.RESOURCE_PATH + '/static/user/avatar/1.' + _.last(_.split(avatar.path, '.'));
+    const avatarPath = think.RESOURCE_PATH + '/static/sale/avatar/1.' + _.last(_.split(avatar.path, '.'));
 
     fs.rename(avatar.path, avatarPath, function (res) {
       return this.success();

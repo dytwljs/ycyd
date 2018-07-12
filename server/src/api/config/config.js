@@ -12,7 +12,9 @@ module.exports = {
     'search',
     'region',
     'store',
-    'z_test'
+    'z_test',
+    'user',
+    'sale'
   ],
 
   // 可以公开访问的Action
@@ -28,6 +30,7 @@ module.exports = {
     'cart/goodscount',
     'pay/notify',
     'store/index',
-    'test'
+    'z_test/test',
+    'user/info'
   ]
 };

@@ -16,8 +16,6 @@ module.exports = class extends think.Controller {
       }
     }
   }
-
-
   /**
    * 获取时间戳
    * @returns {Number}

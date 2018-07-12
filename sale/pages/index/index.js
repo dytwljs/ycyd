@@ -110,6 +110,19 @@ Page({
         }
         return scene;
     },
+    toClient:function(){
+        wx.navigateToMiniProgram({
+            appId: 'wx1ca22e3163a07ec6',
+            path: 'pages/category/category',
+            extraData: {
+              foo: 'bar'
+            },
+            envVersion: 'develop',
+            success(res) {
+              // 打开成功
+            }
+          })
+    },
 
     checkedItem: function (event) {
         let itemIndex = event.target.dataset.itemIndex;
@@ -155,7 +168,11 @@ Page({
         if (scene != 'undefined')
             this.handScene(scene);
     },
-
+    test:function(){
+        util.request(api.Z_Test).then(res=>{
+            console.log(res);
+        });
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -165,6 +182,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
+        this.test();
+        return;
         if (app.globalData.userInfo.authorize<9) {
         wx.navigateTo({
           url: '../../pages/ucenter/auth/login',

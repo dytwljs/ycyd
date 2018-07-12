@@ -14,6 +14,10 @@ module.exports = {
   AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
   GetPhone: ApiRootUrl + 'auth/GetPhone', //微信登录
 
+  GetUserInfo:ApiRootUrl + 'user/UserInfo', //获取用户信息
+
+  GetSaleInfo:ApiRootUrl + 'sale/info', //获取销售商信息
+
   GoodsCount: ApiRootUrl + 'goods/count',  //统计商品总数
   GoodsList: ApiRootUrl + 'goods/list',  //获得商品列表
   GoodsCategory: ApiRootUrl + 'goods/category',  //获得分类数据
